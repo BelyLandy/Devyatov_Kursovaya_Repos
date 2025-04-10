@@ -1,0 +1,70 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 3
+  tags:
+  - Object
+  - Pickup
+  - Enemy
+  - Repka_Plant
+  - Repka_Item
+  - BelenaItem
+  - BelenaPlant
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - Enemy
+  - Water
+  - UI
+  - Player
+  - Environment
+  - Surface
+  - ParticleCollider
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - Drawable
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: Loading
+    uniqueID: 1351084501
+    locked: 0
+  - name: Book
+    uniqueID: 574952497
+    locked: 0
+  - name: GameScene
+    uniqueID: 3170204793
+    locked: 0
+  - name: UI
+    uniqueID: 2691499269
+    locked: 0
+  - name: Other
+    uniqueID: 3179768819
+    locked: 0
+  - name: Cursor
+    uniqueID: 1300742869
+    locked: 0
+  m_RenderingLayers:
+  - Default
