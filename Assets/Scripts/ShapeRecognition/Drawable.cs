@@ -19,9 +19,12 @@ namespace FreeDraw
     {
      
         public event Action<DollarPoint []> OnDrawFinished;
+
+
+        [SerializeField] private PenColorSettings _penColorSettings;
         
         // PEN COLOUR
-        public static Color Pen_Colour = Color.red; // Change these to change the default drawing settings
+        //public static Color _penColorSettings.currentColor = Color.red; // Change these to change the default drawing settings
 
         // PEN WIDTH (actually, it's a radius, in pixels)
         [SerializeField] private static int Pen_Width = 1;
@@ -84,13 +87,13 @@ namespace FreeDraw
                 // THIS IS THE FIRST CLICK
                 // FILL IN WHATEVER YOU WANT TO DO HERE
                 // Maybe mark multiple pixels to colour?
-                MarkPixelsToColour(pixel_pos, Pen_Width, Pen_Colour);
+                MarkPixelsToColour(pixel_pos, Pen_Width, _penColorSettings.currentColor);
             }
             else
             {
                 // THE USER IS DRAGGING
                 // Should we do stuff between the previous mouse position and the current one?
-                ColourBetween(previous_drag_position, pixel_pos, Pen_Width, Pen_Colour);
+                ColourBetween(previous_drag_position, pixel_pos, Pen_Width, _penColorSettings.currentColor);
             }
             ////////////////////////////////////////////////////////////////
 
@@ -107,7 +110,7 @@ namespace FreeDraw
 
         // Default brush type. Has width and colour.
         // Pass in a point in WORLD coordinates
-        // Changes the surrounding pixels of the world_point to the static pen_colour
+        // Changes the surrounding pixels of the world_point to the static _penColorSettings.currentColor
         public void PenBrush(Vector2 world_point)
         {
             Vector2 pixel_pos = WorldToPixelCoordinates(world_point);
@@ -118,12 +121,12 @@ namespace FreeDraw
             if (previous_drag_position == Vector2.zero)
             {
                 // If this is the first time we've ever dragged on this image, simply colour the pixels at our mouse position
-                MarkPixelsToColour(pixel_pos, Pen_Width, Pen_Colour);
+                MarkPixelsToColour(pixel_pos, Pen_Width, _penColorSettings.currentColor);
             }
             else
             {
                 // Colour in a line from where we were on the last update call
-                ColourBetween(previous_drag_position, pixel_pos, Pen_Width, Pen_Colour);
+                ColourBetween(previous_drag_position, pixel_pos, Pen_Width, _penColorSettings.currentColor);
             }
 
             _drawPoints.Add(new DollarPoint(){Point = pixel_pos, StrokeIndex = _strokeIndex});
@@ -156,21 +159,21 @@ namespace FreeDraw
         {
             // Is the user holding down the left mouse button?
             bool mouse_held_down = Input.GetMouseButton(0);
-            bool mouse_held_down_right = Input.GetMouseButton(1);
+            //bool mouse_held_down_right = Input.GetMouseButton(1);
 
             if (mouse_held_down)
             {
                 Pen_Width = 1;
-                Pen_Colour = Color.red;
+                //_penColorSettings.currentColor = Color.red;
             }
 
-            if (mouse_held_down_right)
+            /*if (mouse_held_down_right)
             {
                 Pen_Width = 8;
-                Pen_Colour = Color.clear;
-            }
+                _penColorSettings.currentColor = Color.clear;
+            }*/
 
-            if ((mouse_held_down || mouse_held_down_right) && !no_drawing_on_current_drag)
+            if ((mouse_held_down) && !no_drawing_on_current_drag)
             {
                 isDone = true;
 

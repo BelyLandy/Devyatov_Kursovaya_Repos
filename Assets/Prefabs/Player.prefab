@@ -304,7 +304,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MaxHealth: 10
   CurrentHealth: 10
-  Invulnerable: 0
+  Invulnerable: 1
   DisplayMiniHealthBar: 1
   MiniHealthBarOffset: {x: -0.3, y: 1.04}
   DisplayLargeHealthBar: 0
@@ -333,7 +333,6 @@ MonoBehaviour:
   unitType: 0
   shadowPrefab: {fileID: 7064653722739863417, guid: d464de87f8d55fd49bde925ac20a3c56, type: 3}
   shadow: {fileID: 0}
-  weaponBone: {fileID: 0}
   hitEffect: {fileID: 574761907970971008, guid: bd22f0cbfdad0a0409ad336e57c368ca, type: 3}
   hitBox: {fileID: 778528423619872970}
   spriteRenderer: {fileID: 1065984491119379941}
@@ -399,25 +398,6 @@ MonoBehaviour:
       animationState: Punch3
       sfx: HitSfx
       attackType: 1
-      knockdown: 1
-      foldout: 0
-      inflictor: {fileID: 0}
-    foldout: 1
-  - comboName: KickCombo
-    attackSequence:
-    - name: Kick1
-      damage: 1
-      animationState: Kick1
-      sfx: HitSfx
-      attackType: 2
-      knockdown: 0
-      foldout: 0
-      inflictor: {fileID: 0}
-    - name: Kick2
-      damage: 2
-      animationState: Kick2
-      sfx: HitSfx
-      attackType: 2
       knockdown: 1
       foldout: 0
       inflictor: {fileID: 0}
@@ -505,8 +485,6 @@ MonoBehaviour:
   grabAnimation: Grab
   grabPosition: {x: 0.93, y: 0.1}
   grabDuration: 3
-  loseWeaponWhenHit: 1
-  loseWeaponWhenKnockedDown: 1
   unitName: Nathan
   showNameInAllCaps: 1
   unitPortrait: {fileID: 21300000, guid: ba5676b27e62f3e44976e97c96d16417, type: 3}

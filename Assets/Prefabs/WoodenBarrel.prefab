@@ -102,22 +102,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f839f31971028ba44b8a1f976fc33de1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxHealth: 1
-  CurrentHealth: 1
+  MaxHealth: 10
+  CurrentHealth: 10
   Invulnerable: 0
   DisplayMiniHealthBar: 0
   MiniHealthBarOffset: {x: 0, y: 0}
   DisplayLargeHealthBar: 0
-  SFXOnHit: 
-  SFXOnDestroy: 
+  SFXOnHit: CrateHit
+  SFXOnDestroy: CrateBreak
   EnableHitFlash: 1
   HitFlashDuration: 0.15
-  EnableShakeEffect: 0
+  EnableShakeEffect: 1
   ShakeIntensity: 0.08
   ShakeDuration: 0.5
   ShakeSpeed: 50
   HitEffectPrefab: {fileID: 0}
-  DestroyEffectPrefab: {fileID: 0}
+  DestroyEffectPrefab: {fileID: 1170919598269764670, guid: 5fd829a4b0db63349b2de17fe4248d6c, type: 3}
 --- !u!114 &7239209079889530624
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -142,4 +142,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43dd433a226b7a6449d1c553eb1f89dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemToSpawn: {fileID: 3469378867361360617, guid: bb7f0bc5ec4d98843a3acf309d402e34, type: 3}
+  itemToSpawn: {fileID: 1830945258714002662, guid: f68cee0d417c70e498cc16bd3008fa59, type: 3}

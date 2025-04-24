@@ -14,6 +14,18 @@ TextureImporter:
   - first:
       213: 4414369748703308988
     second: Book_Opening_Anim_3
+  - first:
+      213: 1404784301240965073
+    second: Book_Opening_Anim_4
+  - first:
+      213: -8593035805302064192
+    second: Book_Opening_Anim_5
+  - first:
+      213: 5910013109362951832
+    second: Book_Opening_Anim_6
+  - first:
+      213: 5673780374805064649
+    second: Book_Opening_Anim_7
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -130,15 +142,15 @@ TextureImporter:
         width: 384
         height: 320
       alignment: 9
-      pivot: {x: 0.5, y: 0.4375}
+      pivot: {x: 0.5026042, y: 0.4375}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e2ecc9ec9a4663942b1992da87005548
-      internalID: -1684654027
+      spriteID: bc9a54737f1405149b105dbe855a60f0
+      internalID: 422910517
       vertices: []
       indices: 
       edges: []
@@ -159,8 +171,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7dacf56120f9ef2468548fdcc178b0d9
-      internalID: 724978859
+      spriteID: 92deee96a2f82254bb620dc4e976006b
+      internalID: 135206006
       vertices: []
       indices: 
       edges: []
@@ -181,8 +193,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d6fd1601ebe180142a34d4d850c3cdb0
-      internalID: 1971272912
+      spriteID: 2c5e888e1e453b043b406e5b4e6d48d0
+      internalID: -687749448
       vertices: []
       indices: 
       edges: []
@@ -203,8 +215,96 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 540e454b5410c2f4f951263e0c9ee0e0
-      internalID: -1606616145
+      spriteID: 7ce091fdae0e81447bc16037e54cf4d7
+      internalID: 785144668
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Book_Opening_Anim_4
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 0
+        width: 384
+        height: 320
+      alignment: 9
+      pivot: {x: 0.5, y: 0.4375}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8e5fa7cd7e388db4f85e377897eeb113
+      internalID: -933810427
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Book_Opening_Anim_5
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 0
+        width: 384
+        height: 320
+      alignment: 9
+      pivot: {x: 0.5, y: 0.4375}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dea6f82bed59231408e0fdbbf7f9e39b
+      internalID: -1586391408
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Book_Opening_Anim_6
+      rect:
+        serializedVersion: 2
+        x: 2304
+        y: 0
+        width: 384
+        height: 320
+      alignment: 9
+      pivot: {x: 0.5, y: 0.4375}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a6d034c39a8621148a97773ec1b05d02
+      internalID: -32468313
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Book_Opening_Anim_7
+      rect:
+        serializedVersion: 2
+        x: 2688
+        y: 0
+        width: 384
+        height: 320
+      alignment: 9
+      pivot: {x: 0.5, y: 0.4375}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1457775051c6fdc44b2aceec44cdd02c
+      internalID: -1858498920
       vertices: []
       indices: 
       edges: []
@@ -214,7 +314,7 @@ TextureImporter:
     physicsShape: []
     bones: []
     spriteID: 5e97eb03825dee720800000000000000
-    internalID: 1537655665
+    internalID: 0
     vertices: []
     indices: 
     edges: []
@@ -223,10 +323,14 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Book_Opening_Anim_0: -1684654027
-      Book_Opening_Anim_1: 724978859
-      Book_Opening_Anim_2: 1971272912
-      Book_Opening_Anim_3: -1606616145
+      Book_Opening_Anim_0: 422910517
+      Book_Opening_Anim_1: 135206006
+      Book_Opening_Anim_2: -687749448
+      Book_Opening_Anim_3: 785144668
+      Book_Opening_Anim_4: -933810427
+      Book_Opening_Anim_5: -1586391408
+      Book_Opening_Anim_6: -32468313
+      Book_Opening_Anim_7: -1858498920
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

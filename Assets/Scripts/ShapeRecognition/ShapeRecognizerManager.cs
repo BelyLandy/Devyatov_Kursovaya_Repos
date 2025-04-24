@@ -127,8 +127,8 @@ public class ShapeRecognizerManager : MonoBehaviour
         }
     }
 
-    private void OnApplicationQuit()
+    /*private void OnApplicationQuit()
     {
         Templates.Save();
-    }
+    }*/
 }

@@ -46,46 +46,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AudioList:
-  - name: CrateHit
-    volume: 1
-    randomVolume: 0
-    randomPitch: 0.5
-    minTimeBetweenCall: 0.1
-    range: 0
-    loop: 0
-    clip:
-    - {fileID: 8300000, guid: 81ee350b7bb33ef4eab57ff1f0870754, type: 3}
-    lastTimePlayed: 0
-  - name: CrateBreak
-    volume: 0.3
-    randomVolume: 0
-    randomPitch: 0.3
-    minTimeBetweenCall: 0.1
-    range: 0
-    loop: 0
-    clip:
-    - {fileID: 8300000, guid: 170c8d0ea41733242910cd98a832bd9b, type: 3}
-    lastTimePlayed: 0
-  - name: ItemPickup
-    volume: 0.15
+  - name: -----------PLAYER-----------
+    volume: 0
     randomVolume: 0
     randomPitch: 0
-    minTimeBetweenCall: 0
+    minTimeBetweenCall: 0.1
     range: 0
     loop: 0
-    clip:
-    - {fileID: 8300000, guid: 069f7474701f0dc4681c66e4ebc8c75a, type: 3}
-    lastTimePlayed: 0
-  - name: Whooshes
-    volume: 0.4
-    randomVolume: 0
-    randomPitch: 0.2
-    minTimeBetweenCall: 0
-    range: 0
-    loop: 0
-    clip:
-    - {fileID: 8300000, guid: b9b5f2cc144723f4083bead9496b1bd1, type: 3}
-    - {fileID: 8300000, guid: e83d827f6ad3e8742910371e40ad8b6c, type: 3}
+    clip: []
     lastTimePlayed: 0
   - name: Land
     volume: 0.2
@@ -95,29 +63,18 @@ MonoBehaviour:
     range: 0
     loop: 0
     clip:
-    - {fileID: 8300000, guid: c76c22e7e7f97a64490f93e3d907516b, type: 3}
-    lastTimePlayed: 0
-  - name: SwordHit
-    volume: 0.7
-    randomVolume: 0
-    randomPitch: 0.2
-    minTimeBetweenCall: 0.1
-    range: 0
-    loop: 0
-    clip:
-    - {fileID: 8300000, guid: 3afd645dbec210b4698f4c52b532e27f, type: 3}
-    - {fileID: 8300000, guid: e1ebcbef1dd4829489cd268eb6e3dcbc, type: 3}
-    - {fileID: 8300000, guid: 2426862dcb2f6904f92f27a2814753fc, type: 3}
+    - {fileID: 8300000, guid: 5b032ad152bfe0040ab43d64d73eb6e3, type: 3}
     lastTimePlayed: 0
   - name: DefendHit
-    volume: 0.7
+    volume: 0.4
     randomVolume: 0
     randomPitch: 0.3
     minTimeBetweenCall: 0
     range: 0
     loop: 0
     clip:
-    - {fileID: 8300000, guid: 4b5aa7b08e42f1f4ca50e84dd2d28499, type: 3}
+    - {fileID: 8300000, guid: b9b5f2cc144723f4083bead9496b1bd1, type: 3}
+    - {fileID: 8300000, guid: e83d827f6ad3e8742910371e40ad8b6c, type: 3}
     lastTimePlayed: 0
   - name: FootstepDefault
     volume: 0.1
@@ -150,9 +107,14 @@ MonoBehaviour:
     range: 0
     loop: 0
     clip:
-    - {fileID: 8300000, guid: eee9380fc350cf646a72a51e27c220f1, type: 3}
-    - {fileID: 8300000, guid: 57f5189976c5f9c4581b2427f57fd241, type: 3}
-    - {fileID: 8300000, guid: baf99d70303abce4dac4a09dc1df27a3, type: 3}
+    - {fileID: 8300000, guid: 5b032ad152bfe0040ab43d64d73eb6e3, type: 3}
+    - {fileID: 8300000, guid: 7aea0d27f1b107747bb9b41b5b06d935, type: 3}
+    - {fileID: 8300000, guid: f264867248d98a04d8a82a085b107ee9, type: 3}
+    - {fileID: 8300000, guid: 2af42ad9dc53574419f1b6631350f930, type: 3}
+    - {fileID: 8300000, guid: 10a15705044b5e14ebab42cd5c869194, type: 3}
+    - {fileID: 8300000, guid: 65deb416023f6c24b83b940e5b9031e8, type: 3}
+    - {fileID: 8300000, guid: 54445c5711996ed4bae948c6677d4ec2, type: 3}
+    - {fileID: 8300000, guid: b7cdbfc73cccfed4fbb96a6865f2e67b, type: 3}
     lastTimePlayed: 0
   - name: FootstepMetal
     volume: 0.1
@@ -176,6 +138,136 @@ MonoBehaviour:
     clip:
     - {fileID: 8300000, guid: 1806f0fdb824f2749afb89f6b4ff9aad, type: 3}
     lastTimePlayed: 0
+  - name: PlayerHitSmb_1
+    volume: 0.5
+    randomVolume: 0
+    randomPitch: 0.2
+    minTimeBetweenCall: 0.1
+    range: 0
+    loop: 0
+    clip:
+    - {fileID: 8300000, guid: 3afd645dbec210b4698f4c52b532e27f, type: 3}
+    lastTimePlayed: 0
+  - name: PlayerHitSmb_2
+    volume: 0.5
+    randomVolume: 0
+    randomPitch: 0.2
+    minTimeBetweenCall: 0.1
+    range: 0
+    loop: 0
+    clip:
+    - {fileID: 8300000, guid: e1ebcbef1dd4829489cd268eb6e3dcbc, type: 3}
+    lastTimePlayed: 0
+  - name: PlayerHitSmb_3
+    volume: 0.5
+    randomVolume: 0
+    randomPitch: 0.2
+    minTimeBetweenCall: 0.1
+    range: 0
+    loop: 0
+    clip:
+    - {fileID: 8300000, guid: 2426862dcb2f6904f92f27a2814753fc, type: 3}
+    lastTimePlayed: 0
+  - name: Whooshes
+    volume: 0.4
+    randomVolume: 0
+    randomPitch: 0.2
+    minTimeBetweenCall: 0
+    range: 0
+    loop: 0
+    clip:
+    - {fileID: 8300000, guid: b9b5f2cc144723f4083bead9496b1bd1, type: 3}
+    - {fileID: 8300000, guid: e83d827f6ad3e8742910371e40ad8b6c, type: 3}
+    lastTimePlayed: 0
+  - name: -----------ENEMY_1-----------
+    volume: 0
+    randomVolume: 0
+    randomPitch: 0
+    minTimeBetweenCall: 0.1
+    range: 0
+    loop: 0
+    clip: []
+    lastTimePlayed: 0
+  - name: EnemyGotDamage
+    volume: 0.5
+    randomVolume: 0
+    randomPitch: 0
+    minTimeBetweenCall: 0.1
+    range: 0
+    loop: 0
+    clip:
+    - {fileID: 8300000, guid: d9dbacbcdb71f3748a1f37e0d015e7b2, type: 3}
+    - {fileID: 8300000, guid: 758c13785ab92684d9a8343eaefdb237, type: 3}
+    - {fileID: 8300000, guid: b7bb3c12e8933af42b87f1a4e98c2403, type: 3}
+    lastTimePlayed: 0
+  - name: ----------OBJECTS----------
+    volume: 0.5
+    randomVolume: 0
+    randomPitch: 0
+    minTimeBetweenCall: 0.1
+    range: 0
+    loop: 0
+    clip: []
+    lastTimePlayed: 0
+  - name: CrateHit
+    volume: 1
+    randomVolume: 0
+    randomPitch: 0.5
+    minTimeBetweenCall: 0.1
+    range: 0
+    loop: 0
+    clip:
+    - {fileID: 8300000, guid: 81ee350b7bb33ef4eab57ff1f0870754, type: 3}
+    lastTimePlayed: 0
+  - name: CrateBreak
+    volume: 0.3
+    randomVolume: 0
+    randomPitch: 0.3
+    minTimeBetweenCall: 0.1
+    range: 0
+    loop: 0
+    clip:
+    - {fileID: 8300000, guid: 170c8d0ea41733242910cd98a832bd9b, type: 3}
+    lastTimePlayed: 0
+  - name: ScareCrowHit
+    volume: 0.5
+    randomVolume: 0
+    randomPitch: 0
+    minTimeBetweenCall: 0.1
+    range: 0
+    loop: 0
+    clip:
+    - {fileID: 8300000, guid: 7f9213c432c4e7d40a5395ff72620eae, type: 3}
+    lastTimePlayed: 0
+  - name: ---------PICKUPS--------
+    volume: 0.5
+    randomVolume: 0
+    randomPitch: 0
+    minTimeBetweenCall: 0.1
+    range: 0
+    loop: 0
+    clip: []
+    lastTimePlayed: 0
+  - name: ItemPickup
+    volume: 0.7
+    randomVolume: 0
+    randomPitch: 0
+    minTimeBetweenCall: 0
+    range: 0
+    loop: 0
+    clip:
+    - {fileID: 8300000, guid: cb3e8a7976a240f4d949ca454839b1ae, type: 3}
+    lastTimePlayed: 0
+  - name: ---------UI----------
+    volume: 0.5
+    randomVolume: 0
+    randomPitch: 0
+    minTimeBetweenCall: 0.1
+    range: 0
+    loop: 0
+    clip:
+    - {fileID: 8300000, guid: 7f9213c432c4e7d40a5395ff72620eae, type: 3}
+    lastTimePlayed: 0
   - name: HandPointer
     volume: 0.2
     randomVolume: 0
@@ -196,26 +288,6 @@ MonoBehaviour:
     clip:
     - {fileID: 8300000, guid: 169ddee8c08d0da488bc144745b9ee1f, type: 3}
     lastTimePlayed: 0
-  - name: UIButtonSelect
-    volume: 0.2
-    randomVolume: 0
-    randomPitch: 0
-    minTimeBetweenCall: 0
-    range: 0
-    loop: 0
-    clip:
-    - {fileID: 8300000, guid: 8360f906949aca8428ae3e3a9d930dbf, type: 3}
-    lastTimePlayed: 0
-  - name: WaterSpray
-    volume: 0.2
-    randomVolume: 0
-    randomPitch: 0
-    minTimeBetweenCall: 0
-    range: 15
-    loop: 1
-    clip:
-    - {fileID: 8300000, guid: a41096de1c89d614fb91e9a70e664878, type: 3}
-    lastTimePlayed: 0
   - name: LevelMusic
     volume: 0.5
     randomVolume: 0
@@ -226,15 +298,208 @@ MonoBehaviour:
     clip:
     - {fileID: 8300000, guid: 7f9213c432c4e7d40a5395ff72620eae, type: 3}
     lastTimePlayed: 0
-  - name: ScareCrowHit
-    volume: 0.5
+  - name: UIButtonSelect
+    volume: 0.2
     randomVolume: 0
     randomPitch: 0
-    minTimeBetweenCall: 0.1
+    minTimeBetweenCall: 0
     range: 0
     loop: 0
     clip:
-    - {fileID: 8300000, guid: 7f9213c432c4e7d40a5395ff72620eae, type: 3}
+    - {fileID: 8300000, guid: 8360f906949aca8428ae3e3a9d930dbf, type: 3}
+    lastTimePlayed: 0
+  - name: EnemyDeath
+    volume: 0.5
+    randomVolume: 0
+    randomPitch: 0
+    minTimeBetweenCall: 0
+    range: 0
+    loop: 0
+    clip:
+    - {fileID: 8300000, guid: a69bf689afac1334eb8297d3222bab2b, type: 3}
+    lastTimePlayed: 0
+  - name: CloseBook
+    volume: 0.5
+    randomVolume: 0
+    randomPitch: 0
+    minTimeBetweenCall: 0
+    range: 0
+    loop: 0
+    clip:
+    - {fileID: 8300000, guid: cd7dff7fd57d8024faa9c9ca1b595c0b, type: 3}
+    - {fileID: 8300000, guid: b3d5caeecffe9294ea207e654e44523e, type: 3}
+    lastTimePlayed: 0
+  - name: OpenBook
+    volume: 0.5
+    randomVolume: 0
+    randomPitch: 0.2
+    minTimeBetweenCall: 0
+    range: 0
+    loop: 0
+    clip:
+    - {fileID: 8300000, guid: 48f3ff8b280c3e042a86932ad972b0e8, type: 3}
+    lastTimePlayed: 0
+  - name: AnvilHit
+    volume: 0.25
+    randomVolume: 0
+    randomPitch: 0.1
+    minTimeBetweenCall: 0.5
+    range: 0
+    loop: 0
+    clip:
+    - {fileID: 8300000, guid: d1e34adef64678d48b38a5f8edfb4cad, type: 3}
+    lastTimePlayed: 0
+  - name: ScrollWriting
+    volume: 0.1
+    randomVolume: 0
+    randomPitch: 0.1
+    minTimeBetweenCall: 0.5
+    range: 0
+    loop: 0
+    clip:
+    - {fileID: 8300000, guid: a76ba23a6a3c6864091d49a3984baa3c, type: 3}
+    lastTimePlayed: 0
+  - name: DoorOpening
+    volume: 0.25
+    randomVolume: 0
+    randomPitch: 0.1
+    minTimeBetweenCall: 0.5
+    range: 0
+    loop: 0
+    clip:
+    - {fileID: 8300000, guid: 2ed73e1df1e945a4db789549d4a72e50, type: 3}
+    lastTimePlayed: 0
+  - name: DoorClosing
+    volume: 0.25
+    randomVolume: 0
+    randomPitch: 0.1
+    minTimeBetweenCall: 0.5
+    range: 0
+    loop: 0
+    clip:
+    - {fileID: 8300000, guid: 19d01dd7b45f88341bd8581e3a728f04, type: 3}
+    lastTimePlayed: 0
+  - name: BookSlide
+    volume: 0.25
+    randomVolume: 0
+    randomPitch: 0
+    minTimeBetweenCall: 0
+    range: 0
+    loop: 0
+    clip:
+    - {fileID: 8300000, guid: fbe231985b7320140ae0dde15150a3fe, type: 3}
+    lastTimePlayed: 0
+  - name: MenuMusic
+    volume: 0.25
+    randomVolume: 0
+    randomPitch: 0
+    minTimeBetweenCall: 0
+    range: 0
+    loop: 1
+    clip:
+    - {fileID: 8300000, guid: 8402ac376cb78f84987e57a270aec84b, type: 3}
+    lastTimePlayed: 0
+  - name: Zaduvanie
+    volume: 0.5
+    randomVolume: 0
+    randomPitch: 0
+    minTimeBetweenCall: 0
+    range: 0
+    loop: 0
+    clip:
+    - {fileID: 8300000, guid: 964c6e824e0a89d4087a940028218127, type: 3}
+    lastTimePlayed: 0
+  - name: CandleSound
+    volume: 0.2
+    randomVolume: 0
+    randomPitch: 0
+    minTimeBetweenCall: 0
+    range: 0
+    loop: 1
+    clip:
+    - {fileID: 8300000, guid: 77f252ccd986ba14792d414474a43930, type: 3}
+    lastTimePlayed: 0
+  - name: NatureAmbient
+    volume: 0.2
+    randomVolume: 0
+    randomPitch: 0
+    minTimeBetweenCall: 0
+    range: 0
+    loop: 1
+    clip:
+    - {fileID: 8300000, guid: 8eee08fea9c08d1479575043acaf79a7, type: 3}
+    lastTimePlayed: 0
+  - name: Phrase_1
+    volume: 0.5
+    randomVolume: 0
+    randomPitch: 0
+    minTimeBetweenCall: 0
+    range: 0
+    loop: 0
+    clip:
+    - {fileID: 8300000, guid: 94f59b9fdbe7ae14a9bc1a6e3e6df45c, type: 3}
+    lastTimePlayed: 0
+  - name: napadai
+    volume: 0.5
+    randomVolume: 0
+    randomPitch: 0
+    minTimeBetweenCall: 0
+    range: 0
+    loop: 0
+    clip:
+    - {fileID: 8300000, guid: 1afe33e2c4ef061458a95b2d32dadb45, type: 3}
+    lastTimePlayed: 0
+  - name: ne_smojesh_odolet
+    volume: 0.5
+    randomVolume: 0
+    randomPitch: 0
+    minTimeBetweenCall: 0
+    range: 0
+    loop: 0
+    clip:
+    - {fileID: 8300000, guid: 0109d1646c85b8b4896d4ff041465aa5, type: 3}
+    lastTimePlayed: 0
+  - name: ura_pobeda
+    volume: 0.5
+    randomVolume: 0
+    randomPitch: 0
+    minTimeBetweenCall: 0
+    range: 0
+    loop: 0
+    clip:
+    - {fileID: 8300000, guid: 4e698507b5b3f6f4f803c0929e009911, type: 3}
+    lastTimePlayed: 0
+  - name: WinLevel
+    volume: 1
+    randomVolume: 0
+    randomPitch: 0
+    minTimeBetweenCall: 0
+    range: 0
+    loop: 0
+    clip:
+    - {fileID: 8300000, guid: 4e698507b5b3f6f4f803c0929e009911, type: 3}
+    lastTimePlayed: 0
+  - name: PlayerDeath
+    volume: 0.5
+    randomVolume: 0
+    randomPitch: 0
+    minTimeBetweenCall: 0
+    range: 0
+    loop: 0
+    clip:
+    - {fileID: 8300000, guid: 8006b67d81a9b0949b7de99ade2162b8, type: 3}
+    - {fileID: 8300000, guid: 137e28ccf117319438c1835d3ee0cabe, type: 3}
+    - {fileID: 8300000, guid: 7ccdffa59c03b824f88a409b03ef756b, type: 3}
+    lastTimePlayed: 0
+  - name: GameMusicFight
+    volume: 0.07
+    randomVolume: 0
+    randomPitch: 0
+    minTimeBetweenCall: 0
+    range: 0
+    loop: 1
+    clip:
+    - {fileID: 8300000, guid: 54491a00f1a0a154dbdcafe553a7b769, type: 3}
     lastTimePlayed: 0
 --- !u!82 &5775929421730576848
 AudioSource:

@@ -1,35 +1,21 @@
 using UnityEngine;
+using System.Collections.Generic;
 
 public class PlaySound : MonoBehaviour, IClickable
 {
-    [SerializeField] 
-    private string soundName;
-
+    [Header("Список имён звуков для поочередного воспроизведения")]
     [SerializeField]
-    private bool useSecondSound = false;
+    private List<string> soundNames = new List<string>();
+    
+    private int currentIndex = 0;
 
-    [SerializeField] 
-    private string secondSoundName;
-    
-    private bool playSecondSound = false;
-    
     public void OnClick()
     {
-        if (useSecondSound)
-        {
-            if (playSecondSound)
-            {
-                SoundManager.Instance.PlaySound2D(secondSoundName);
-            }
-            else
-            {
-                SoundManager.Instance.PlaySound2D(soundName);
-            }
-            playSecondSound = !playSecondSound;
-        }
-        else
-        {
-            SoundManager.Instance.PlaySound2D(soundName);
-        }
+        if (soundNames == null || soundNames.Count == 0)
+            return;
+        
+        SoundManager.Instance.PlaySound2D(soundNames[currentIndex]);
+        
+        currentIndex = (currentIndex + 1) % soundNames.Count;
     }
 }

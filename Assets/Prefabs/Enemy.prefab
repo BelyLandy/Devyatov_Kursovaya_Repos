@@ -119,14 +119,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4955587178937794416}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 1, z: 0, w: -0.00000004371139}
+  m_LocalRotation: {x: 0, y: -1, z: 0, w: 0}
   m_LocalPosition: {x: 0.072, y: -1.287, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1791594993636452230}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -180, z: 0}
 --- !u!50 &3678981344441314270
 Rigidbody2D:
   serializedVersion: 5
@@ -289,7 +289,7 @@ MonoBehaviour:
   targetSpotted: 0
   col2D: {fileID: 0}
   attackList: 
-  showStateInGame: 0
+  showStateInGame: 1
   currentState: 
 --- !u!114 &6831651101224142191
 MonoBehaviour:
@@ -307,13 +307,13 @@ MonoBehaviour:
   CurrentHealth: 10
   Invulnerable: 0
   DisplayMiniHealthBar: 1
-  MiniHealthBarOffset: {x: -0.3, y: 1.04}
+  MiniHealthBarOffset: {x: -0.25, y: 0}
   DisplayLargeHealthBar: 0
-  SFXOnHit: 
-  SFXOnDestroy: 
+  SFXOnHit: EnemyGotDamage
+  SFXOnDestroy: EnemyDeath
   EnableHitFlash: 1
   HitFlashDuration: 0.15
-  EnableShakeEffect: 0
+  EnableShakeEffect: 1
   ShakeIntensity: 0.08
   ShakeDuration: 0.5
   ShakeSpeed: 50
@@ -351,7 +351,6 @@ MonoBehaviour:
   unitType: 10
   shadowPrefab: {fileID: 7064653722739863417, guid: d464de87f8d55fd49bde925ac20a3c56, type: 3}
   shadow: {fileID: 0}
-  weaponBone: {fileID: 0}
   hitEffect: {fileID: 574761907970971008, guid: bd22f0cbfdad0a0409ad336e57c368ca, type: 3}
   hitBox: {fileID: 4630185741366830119}
   spriteRenderer: {fileID: 4110879382849021568}
@@ -436,7 +435,7 @@ MonoBehaviour:
   - name: Punch1
     damage: 1
     animationState: Punch1
-    sfx: HitSfx
+    sfx: PlayerHitSmb_1
     attackType: 1
     knockdown: 0
     foldout: 1
@@ -444,17 +443,17 @@ MonoBehaviour:
   - name: Punch2
     damage: 1
     animationState: Punch2
-    sfx: HitSfx
+    sfx: PlayerHitSmb_2
     attackType: 1
     knockdown: 0
-    foldout: 0
+    foldout: 1
     inflictor: {fileID: 0}
-  - name: Kick1
-    damage: 1
-    animationState: Kick1
-    sfx: HitSfx
-    attackType: 2
-    knockdown: 1
+  - name: Punch3
+    damage: 2
+    animationState: Punch3
+    sfx: PlayerHitSmb_3
+    attackType: 1
+    knockdown: 0
     foldout: 1
     inflictor: {fileID: 0}
   canBeKnockedDown: 1
@@ -462,7 +461,7 @@ MonoBehaviour:
   knockDownDistance: 3
   knockDownSpeed: 3
   knockDownFloorTime: 1
-  hitOtherEnemiesWhenFalling: 1
+  hitOtherEnemiesWhenFalling: 0
   throwHeight: 3
   throwDistance: 5
   hitOtherEnemiesWhenThrown: 1
@@ -474,17 +473,11 @@ MonoBehaviour:
   grabAnimation: Grab
   grabPosition: {x: 0.93, y: 0}
   grabDuration: 3
-  loseWeaponWhenHit: 1
-  loseWeaponWhenKnockedDown: 1
-  unitName: 
-  showNameInAllCaps: 0
-  unitPortrait: {fileID: 21300000, guid: 5d96b704716877b47b2b16dc37e5f2f4, type: 3}
-  loadRandomNameFromList: 0
   unitNamesList: {fileID: 0}
-  enemyPauseBeforeAttack: 0.3
+  enemyPauseBeforeAttack: 0
   enableFOV: 0
-  viewDistance: 5
-  viewAngle: 45
+  viewDistance: 7.2
+  viewAngle: 180.59
   viewPosOffset: {x: 0, y: 1}
   showFOVCone: 0
   targetInSight: 0

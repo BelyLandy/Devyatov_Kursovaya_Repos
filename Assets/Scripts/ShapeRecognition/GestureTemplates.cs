@@ -42,23 +42,35 @@ public class GestureTemplates
         return RawTemplates.Where(template => template.Name == name).ToArray();
     }
 
-    public void Save()
+    /*public void Save()
     {
         string path = Application.persistentDataPath + $"/{_currJsonPath}.json";
         string potion = JsonUtility.ToJson(this);
         File.WriteAllText(path, potion);
-    }
+    }*/
 
     private void Load()
     {
-        string path = Application.persistentDataPath + $"/{_currJsonPath}.json";
-        if (File.Exists(path))
+        TextAsset jsonAsset = Resources.Load<TextAsset>(_currJsonPath);
+        if (jsonAsset == null)
         {
-            GestureTemplates data = JsonUtility.FromJson<GestureTemplates>(File.ReadAllText(path));
-            RawTemplates.Clear();
-            RawTemplates.AddRange(data.RawTemplates);
-            ProceedTemplates.Clear();
-            ProceedTemplates.AddRange(data.ProceedTemplates);
+            Debug.LogError($"[GestureTemplates] Не найден файл {_currJsonPath}.json в Resources!");
+            return;
         }
+        
+        GestureTemplates data = JsonUtility.FromJson<GestureTemplates>(jsonAsset.text);
+        if (data == null)
+        {
+            Debug.LogError("[GestureTemplates] Не удалось распарсить JSON из GestureTemplates.json");
+            return;
+        }
+        
+        RawTemplates.Clear();
+        RawTemplates.AddRange(data.RawTemplates);
+
+        ProceedTemplates.Clear();
+        ProceedTemplates.AddRange(data.ProceedTemplates);
+
+        Debug.Log($"[GestureTemplates] Загружено {RawTemplates.Count} шаблонов из Resources/{_currJsonPath}.json");
     }
 }

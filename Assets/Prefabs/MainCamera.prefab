@@ -72,7 +72,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 2.9189188
+  orthographic size: 2.109375
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -132,23 +132,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e474beb4bb9fa744e8968f072c30786b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pixelPerfectCamera: {fileID: 4006042989203868838}
   targets:
   - {fileID: 0}
   restrictTargetsToCamView: 1
   borderMargin: 0.05
-  yOffset: -0.76
+  yOffset: -2
   additionalYOffset: 0.000032636897
-  DampX: 3.09
-  DampY: 4.25
+  DampX: 3
+  DampY: 1
   Left: 0
   Right: 30
-  Top: 0.79
-  Bottom: -2.19
+  Top: 0.42
+  Bottom: 0.42
   showViewAreaRect: 1
-  allowBacktracking: 1
+  allowBacktracking: 0
   BackTrackMargin: 2
   levelBound: {fileID: 0}
-  pixelPerfectCamera: {fileID: 0}
 --- !u!114 &8967322987176293445
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -273,7 +273,7 @@ MonoBehaviour:
     m_Bits: 1
   m_VolumeTrigger: {fileID: 0}
   m_VolumeFrameworkUpdateModeOption: 2
-  m_RenderPostProcessing: 0
+  m_RenderPostProcessing: 1
   m_Antialiasing: 0
   m_AntialiasingQuality: 2
   m_StopNaN: 0

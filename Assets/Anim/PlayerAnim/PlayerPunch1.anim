@@ -437,7 +437,7 @@ AnimationClip:
   m_Events:
   - time: 0
     functionName: PlaySFX
-    data: Whoosh
+    data: Whooshes
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0

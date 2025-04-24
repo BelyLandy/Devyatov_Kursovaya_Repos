@@ -63,6 +63,30 @@ MonoBehaviour:
   - groupID: OpenBook
     clips:
     - {fileID: 8300000, guid: 48f3ff8b280c3e042a86932ad972b0e8, type: 3}
+  - groupID: Krasna kartina
+    clips:
+    - {fileID: 8300000, guid: 668dbc8650559e345995d082cadcc842, type: 3}
+  - groupID: Zamechatelno
+    clips:
+    - {fileID: 8300000, guid: ee6ab34c69337ea4b8381d85fd7e30a3, type: 3}
+  - groupID: Prekrasno
+    clips:
+    - {fileID: 8300000, guid: 6c4aa4fb74572cb4cb793f7307af093f, type: 3}
+  - groupID: Lapota
+    clips:
+    - {fileID: 8300000, guid: ea6da878bfec7444aaf9ea3fbb18d2fd, type: 3}
+  - groupID: Trud Den Dev
+    clips:
+    - {fileID: 8300000, guid: 59333ec0fb8a11a4194a30bdd3287fb1, type: 3}
+  - groupID: PaperSound1
+    clips:
+    - {fileID: 8300000, guid: b6ed665323cdb974cab78242636df608, type: 3}
+  - groupID: PaperSound2
+    clips:
+    - {fileID: 8300000, guid: b264631c1e71a9840b93b745f4e402e6, type: 3}
+  - groupID: BookSlide
+    clips:
+    - {fileID: 8300000, guid: fbe231985b7320140ae0dde15150a3fe, type: 3}
 --- !u!114 &3420493242601581607
 MonoBehaviour:
   m_ObjectHideFlags: 0

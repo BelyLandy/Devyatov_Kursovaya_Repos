@@ -1,0 +1,962 @@
+fileFormatVersion: 2
+guid: 43cf8aebc367d5846bb8cb72e9e6034c
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 7751627239672022652
+    second: Nadpisi_logo_0
+  - first:
+      213: -8118950703766779808
+    second: Nadpisi_logo_1
+  - first:
+      213: 19061418577113245
+    second: Nadpisi_logo_2
+  - first:
+      213: -5095691318287918607
+    second: Nadpisi_logo_3
+  - first:
+      213: 2818671176700022874
+    second: Nadpisi_logo_4
+  - first:
+      213: 3637743577780598465
+    second: Nadpisi_logo_5
+  - first:
+      213: -5845188488536248380
+    second: Nadpisi_logo_6
+  - first:
+      213: 1152602367741086868
+    second: Nadpisi_logo_7
+  - first:
+      213: 8563452522830546295
+    second: Nadpisi_logo_8
+  - first:
+      213: -1552025187357453782
+    second: Nadpisi_logo_9
+  - first:
+      213: -4729179615381426762
+    second: Nadpisi_logo_10
+  - first:
+      213: -6186387974174852454
+    second: Nadpisi_logo_11
+  - first:
+      213: 1653005199290872224
+    second: Nadpisi_logo_12
+  - first:
+      213: -2171715423024884466
+    second: Nadpisi_logo_13
+  - first:
+      213: -3223013212114358591
+    second: Nadpisi_logo_14
+  - first:
+      213: -6561626095951294603
+    second: Nadpisi_logo_15
+  - first:
+      213: 6478031136349478
+    second: Nadpisi_logo_16
+  - first:
+      213: 8236473905828957105
+    second: Nadpisi_logo_17
+  - first:
+      213: 8872585099254326672
+    second: Nadpisi_logo_18
+  - first:
+      213: -5720152326608240730
+    second: Nadpisi_logo_19
+  - first:
+      213: -7404113348086322646
+    second: Nadpisi_logo_20
+  - first:
+      213: -2613470655605787530
+    second: Nadpisi_logo_21
+  - first:
+      213: 9055299280372330216
+    second: Nadpisi_logo_22
+  - first:
+      213: 2579451765835938174
+    second: Nadpisi_logo_23
+  - first:
+      213: -7430349993993419658
+    second: Nadpisi_logo_24
+  - first:
+      213: -7268617779176168582
+    second: Nadpisi_logo_25
+  - first:
+      213: -2557487659766773977
+    second: Nadpisi_logo_26
+  - first:
+      213: 4078187146078947833
+    second: Nadpisi_logo_27
+  - first:
+      213: 6887869809064848944
+    second: Nadpisi_logo_28
+  - first:
+      213: -4848226917392926775
+    second: Nadpisi_logo_29
+  - first:
+      213: -3658374844279463621
+    second: Nadpisi_logo_30
+  - first:
+      213: 5817126100971791582
+    second: Nadpisi_logo_31
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 64
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 0
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: 4
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Nadpisi_logo_0
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 125
+        width: 26
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c7684e397ef439b60800000000000000
+      internalID: 7751627239672022652
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Nadpisi_logo_1
+      rect:
+        serializedVersion: 2
+        x: 201
+        y: 125
+        width: 17
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 068c219d951b35f80800000000000000
+      internalID: -8118950703766779808
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Nadpisi_logo_2
+      rect:
+        serializedVersion: 2
+        x: 218
+        y: 125
+        width: 8
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d90343b5248b34000800000000000000
+      internalID: 19061418577113245
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Nadpisi_logo_3
+      rect:
+        serializedVersion: 2
+        x: 226
+        y: 125
+        width: 8
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1f918608eb77849b0800000000000000
+      internalID: -5095691318287918607
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Nadpisi_logo_4
+      rect:
+        serializedVersion: 2
+        x: 232
+        y: 125
+        width: 9
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a5056d1508eed1720800000000000000
+      internalID: 2818671176700022874
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Nadpisi_logo_5
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 125
+        width: 16
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1c63299a28cdb7230800000000000000
+      internalID: 3637743577780598465
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Nadpisi_logo_6
+      rect:
+        serializedVersion: 2
+        x: 263
+        y: 125
+        width: 9
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4cf289fe908b1eea0800000000000000
+      internalID: -5845188488536248380
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Nadpisi_logo_7
+      rect:
+        serializedVersion: 2
+        x: 271
+        y: 125
+        width: 9
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 49c4b782fbddeff00800000000000000
+      internalID: 1152602367741086868
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Nadpisi_logo_8
+      rect:
+        serializedVersion: 2
+        x: 279
+        y: 125
+        width: 9
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 775cc3ac2be77d670800000000000000
+      internalID: 8563452522830546295
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Nadpisi_logo_9
+      rect:
+        serializedVersion: 2
+        x: 287
+        y: 125
+        width: 8
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a229919a059167ae0800000000000000
+      internalID: -1552025187357453782
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Nadpisi_logo_10
+      rect:
+        serializedVersion: 2
+        x: 294
+        y: 125
+        width: 13
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6bdeb2232349e5eb0800000000000000
+      internalID: -4729179615381426762
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Nadpisi_logo_11
+      rect:
+        serializedVersion: 2
+        x: 305
+        y: 125
+        width: 9
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a9a3f841ae8852aa0800000000000000
+      internalID: -6186387974174852454
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Nadpisi_logo_12
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 95
+        width: 11
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0a13b938877a0f610800000000000000
+      internalID: 1653005199290872224
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Nadpisi_logo_13
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 95
+        width: 16
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e055d5934548cd1e0800000000000000
+      internalID: -2171715423024884466
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Nadpisi_logo_14
+      rect:
+        serializedVersion: 2
+        x: 146
+        y: 95
+        width: 19
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1ce68815f8e8543d0800000000000000
+      internalID: -3223013212114358591
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Nadpisi_logo_15
+      rect:
+        serializedVersion: 2
+        x: 164
+        y: 95
+        width: 10
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 57fc3e9a4db60f4a0800000000000000
+      internalID: -6561626095951294603
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Nadpisi_logo_16
+      rect:
+        serializedVersion: 2
+        x: 181
+        y: 95
+        width: 20
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 62dd9b82cb3071000800000000000000
+      internalID: 6478031136349478
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Nadpisi_logo_17
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 95
+        width: 9
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1bb85bee065dd4270800000000000000
+      internalID: 8236473905828957105
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Nadpisi_logo_18
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 95
+        width: 8
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0956a788321c12b70800000000000000
+      internalID: 8872585099254326672
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Nadpisi_logo_19
+      rect:
+        serializedVersion: 2
+        x: 215
+        y: 95
+        width: 24
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6af346ff3cfed90b0800000000000000
+      internalID: -5720152326608240730
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Nadpisi_logo_20
+      rect:
+        serializedVersion: 2
+        x: 238
+        y: 95
+        width: 10
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a2a269a732e4f3990800000000000000
+      internalID: -7404113348086322646
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Nadpisi_logo_21
+      rect:
+        serializedVersion: 2
+        x: 254
+        y: 90
+        width: 15
+        height: 31
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 674b5b519461bbbd0800000000000000
+      internalID: -2613470655605787530
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Nadpisi_logo_22
+      rect:
+        serializedVersion: 2
+        x: 269
+        y: 95
+        width: 8
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8ee617de7b2eaad70800000000000000
+      internalID: 9055299280372330216
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Nadpisi_logo_23
+      rect:
+        serializedVersion: 2
+        x: 275
+        y: 95
+        width: 9
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e79b7e9e6bd0cc320800000000000000
+      internalID: 2579451765835938174
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Nadpisi_logo_24
+      rect:
+        serializedVersion: 2
+        x: 283
+        y: 95
+        width: 20
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 67442335c0812e890800000000000000
+      internalID: -7430349993993419658
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Nadpisi_logo_25
+      rect:
+        serializedVersion: 2
+        x: 303
+        y: 95
+        width: 8
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a73ad1004aea02b90800000000000000
+      internalID: -7268617779176168582
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Nadpisi_logo_26
+      rect:
+        serializedVersion: 2
+        x: 309
+        y: 95
+        width: 9
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 727082a068af18cd0800000000000000
+      internalID: -2557487659766773977
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Nadpisi_logo_27
+      rect:
+        serializedVersion: 2
+        x: 325
+        y: 90
+        width: 15
+        height: 31
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9f989992a91a89830800000000000000
+      internalID: 4078187146078947833
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Nadpisi_logo_28
+      rect:
+        serializedVersion: 2
+        x: 339
+        y: 95
+        width: 8
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 03ea27c0911a69f50800000000000000
+      internalID: 6887869809064848944
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Nadpisi_logo_29
+      rect:
+        serializedVersion: 2
+        x: 346
+        y: 95
+        width: 9
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9c7be4e3e43a7bcb0800000000000000
+      internalID: -4848226917392926775
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Nadpisi_logo_30
+      rect:
+        serializedVersion: 2
+        x: 354
+        y: 95
+        width: 9
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b316f774677da3dc0800000000000000
+      internalID: -3658374844279463621
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Nadpisi_logo_31
+      rect:
+        serializedVersion: 2
+        x: 362
+        y: 95
+        width: 8
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ed4a31e4e559ab050800000000000000
+      internalID: 5817126100971791582
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 1537655665
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Nadpisi_logo_0: 7751627239672022652
+      Nadpisi_logo_1: -8118950703766779808
+      Nadpisi_logo_10: -4729179615381426762
+      Nadpisi_logo_11: -6186387974174852454
+      Nadpisi_logo_12: 1653005199290872224
+      Nadpisi_logo_13: -2171715423024884466
+      Nadpisi_logo_14: -3223013212114358591
+      Nadpisi_logo_15: -6561626095951294603
+      Nadpisi_logo_16: 6478031136349478
+      Nadpisi_logo_17: 8236473905828957105
+      Nadpisi_logo_18: 8872585099254326672
+      Nadpisi_logo_19: -5720152326608240730
+      Nadpisi_logo_2: 19061418577113245
+      Nadpisi_logo_20: -7404113348086322646
+      Nadpisi_logo_21: -2613470655605787530
+      Nadpisi_logo_22: 9055299280372330216
+      Nadpisi_logo_23: 2579451765835938174
+      Nadpisi_logo_24: -7430349993993419658
+      Nadpisi_logo_25: -7268617779176168582
+      Nadpisi_logo_26: -2557487659766773977
+      Nadpisi_logo_27: 4078187146078947833
+      Nadpisi_logo_28: 6887869809064848944
+      Nadpisi_logo_29: -4848226917392926775
+      Nadpisi_logo_3: -5095691318287918607
+      Nadpisi_logo_30: -3658374844279463621
+      Nadpisi_logo_31: 5817126100971791582
+      Nadpisi_logo_4: 2818671176700022874
+      Nadpisi_logo_5: 3637743577780598465
+      Nadpisi_logo_6: -5845188488536248380
+      Nadpisi_logo_7: 1152602367741086868
+      Nadpisi_logo_8: 8563452522830546295
+      Nadpisi_logo_9: -1552025187357453782
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

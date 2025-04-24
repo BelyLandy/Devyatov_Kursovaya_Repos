@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 [System.Serializable]
 public struct CursorMapping
@@ -35,6 +36,9 @@ public class CustomCursor : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        
+        Vector2 center = new Vector2(Screen.width * 0.5f, Screen.height * 0.5f);
+        Mouse.current.WarpCursorPosition(center);
         
         spriteRenderer = GetComponent<SpriteRenderer>();
 

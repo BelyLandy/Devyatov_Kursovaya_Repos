@@ -5,7 +5,7 @@ public class Loader : MonoBehaviour
 {
     public void IntroScene()
     {
-        Load(Scene.IntroScene);
+        Load(Scene.ChooseSaveFile);
     }
     
     public void MenuScene()
