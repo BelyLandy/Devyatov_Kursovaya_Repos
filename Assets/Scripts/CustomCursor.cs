@@ -9,6 +9,12 @@ public struct CursorMapping
     public Sprite sprite;
 }
 
+public enum CursorType
+{
+    Hand,
+    Feather
+}
+
 public class CustomCursor : MonoBehaviour
 {
     public static CustomCursor Instance { get; private set; }

@@ -1,7 +1,5 @@
 using UnityEngine;
 
-namespace CW_Devyatov_238 {
-
     public class PlayerGroundPunch : State {
 
         private string animationName => unit.settings.groundPunch.animationState;
@@ -25,4 +23,3 @@ namespace CW_Devyatov_238 {
             if(Time.time - stateStartTime > animDuration) unit.stateMachine.SetState(new PlayerIdle());
         }
     }
-}

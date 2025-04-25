@@ -1,5 +1,4 @@
 using System.Collections;
-using CW_Devyatov_238;
 using UnityEngine;
 
 [System.Serializable]
@@ -41,10 +40,7 @@ public class HoverSpriteAnimation : MonoBehaviour
     [SerializeField] private AlternateSprite[] alternateSprites;
     [Tooltip("Включать ли подстановку альтернативных спрайтов для этого объекта")]
     [SerializeField] private bool useAlternateSprites = false;
-
-    /// <summary>
-    /// Если нужно переключать из другого скрипта
-    /// </summary>
+    
     public bool UseAlternateSprites
     {
         get => useAlternateSprites;
@@ -78,18 +74,24 @@ public class HoverSpriteAnimation : MonoBehaviour
 
     [SerializeField] private int statsIndex;
     
-    private bool useToggles => toggles != null && toggles.Length > 0;
-
+    //private bool useToggles => toggles != null && toggles.Length > 0;
+    private bool useToggles;
+    
     private void Awake()
     {
         stats = Resources.Load<KillStatsSO>(killStatsPath);
-        
-        if (stats != null)
-            useAlternateSprites = stats.GetKills(statsIndex) != 0;
-        else
-            useAlternateSprites = false;
 
-  
+        if (stats != null)
+        {
+            useAlternateSprites = stats.GetKills(statsIndex) != 0;
+            useToggles = useAlternateSprites;
+        }
+        else
+        {
+            useToggles = false;
+            useAlternateSprites = false;
+        }
+        
         spriteRenderer = GetComponent<SpriteRenderer>();
         if (spriteRenderer == null)
             Debug.LogError("Компонент SpriteRenderer не найден на объекте!", this);
@@ -179,8 +181,7 @@ public class HoverSpriteAnimation : MonoBehaviour
             frameIndex--;
             yield return new WaitForSeconds(frameDelay);
         }
-
-        // Сброс состояния
+        
         currentFrame = 0;
         if (adjustLightIntensity && targetLight != null)
             targetLight.intensity = 0f;
@@ -196,8 +197,7 @@ public class HoverSpriteAnimation : MonoBehaviour
     private void ApplyFrame(int frameIndex)
     {
         Sprite toApply = sprites[frameIndex];
-
-        // Подстановка альтернативы, если включено
+        
         if (useAlternateSprites)
         {
             var alt = GetAlternateSprite(frameIndex);

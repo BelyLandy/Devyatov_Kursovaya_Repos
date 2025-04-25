@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Users;
-using System.Collections;          // для Coroutine
+using System.Collections;
 
 public class InputManager : MonoBehaviour
 {
@@ -9,7 +9,7 @@ public class InputManager : MonoBehaviour
 
     [Header("Input-startup settings")]
     [Tooltip("Задержка (сек) перед тем, как включить все действия ввода")]
-    [SerializeField] private float startupDelay = 0f;   // ← задаётся в инспекторе
+    [SerializeField] private float startupDelay = 0f;
 
     private string controlsScheme;
     public PlayerControls playerInput;
@@ -38,14 +38,13 @@ public class InputManager : MonoBehaviour
     {
         InputSystem.onDeviceChange += OnDeviceChange;
 
-        // Кэшируем ссылки на действия, но НЕ включаем-— см. EnableInput()
         move   = playerInput.Player.Move;
         punch  = playerInput.Player.Punch;
         defend = playerInput.Player.Defend;
         grab   = playerInput.Player.Grab;
         jump   = playerInput.Player.Jump;
 
-        // Запускаем задержку
+
         if (startupDelay > 0f)
             StartCoroutine(EnableInputDelayed());
         else

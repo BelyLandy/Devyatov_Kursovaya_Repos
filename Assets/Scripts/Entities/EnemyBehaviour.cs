@@ -1,7 +1,5 @@
 using UnityEngine;
 
-namespace CW_Devyatov_238 {
-
     public class EnemyBehaviour : MonoBehaviour {
     
         public bool AI_Active;
@@ -81,4 +79,4 @@ namespace CW_Devyatov_238 {
             return settings.enemyAttackList[rand];
         }
     }
-}
+

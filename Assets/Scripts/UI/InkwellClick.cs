@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using Object = UnityEngine.Object;
 
 public class InkwellClick : MonoBehaviour, IClickable
 {
@@ -67,29 +68,30 @@ public class InkwellClick : MonoBehaviour, IClickable
 
     private void ToggleFalseOtherInkwellColliders()
     {
-        var allInkwells = FindObjectsOfType<InkwellClick>();
+        // **Active** inkwells only – match old behaviour
+        var allInkwells = Object.FindObjectsByType<InkwellClick>(
+            FindObjectsInactive.Exclude,
+            FindObjectsSortMode.None);
+
         foreach (var inkwell in allInkwells)
         {
             if (inkwell == this) continue;
 
-            var childCollider = inkwell.GetComponentInChildren<Collider2D>();
-            if (childCollider != null)
-            {
-                childCollider.enabled = false;
-            }
+            var childCol = inkwell.GetComponentInChildren<Collider2D>();
+            if (childCol) childCol.enabled = false;
         }
     }
-    
+
     private void ToggleAllInkwellColliders()
     {
-        var allInkwells = FindObjectsOfType<InkwellClick>();
+        var allInkwells = Object.FindObjectsByType<InkwellClick>(
+            FindObjectsInactive.Exclude,
+            FindObjectsSortMode.None);
+
         foreach (var inkwell in allInkwells)
         {
-            var childCollider = inkwell.GetComponentInChildren<Collider2D>();
-            if (childCollider != null)
-            {
-                childCollider.enabled = true;
-            }
+            var childCol = inkwell.GetComponentInChildren<Collider2D>();
+            if (childCol) childCol.enabled = true;
         }
     }
 }

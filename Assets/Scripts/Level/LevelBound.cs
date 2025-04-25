@@ -1,8 +1,6 @@
 using UnityEngine;
 
-namespace CW_Devyatov_238 {
 
-    //class for visualizing CameraBounds in the Unity Editor
     public class LevelBound : MonoBehaviour {
    
         public float lineLength = 10;
@@ -16,4 +14,3 @@ namespace CW_Devyatov_238 {
             }
         }
     }
-}

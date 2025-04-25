@@ -1,21 +1,20 @@
 ﻿using UnityEngine;
 
-namespace CW_Devyatov_238 {
+//state for landing after a jump
+public class PlayerLand : State
+{
+    private string animationName = "Land";
+    private float animDuration => unit.GetAnimDuration(animationName);
 
-    //state for landing after a jump
-    public class PlayerLand : State {
+    public override void Enter()
+    {
+        unit.animator.Play(animationName);
+        unit.StopMoving();
+        unit.Footstep(); //footstep sfx
+    }
 
-        private string animationName = "Land";
-        private float animDuration => unit.GetAnimDuration(animationName);
-    
-        public override void Enter(){
-            unit.animator.Play(animationName);
-            unit.StopMoving();
-            unit.Footstep(); //footstep sfx
-        }
-
-        public override void Update(){
-            if(Time.time - stateStartTime > animDuration)  unit.stateMachine.SetState(new PlayerIdle()); //go to idle state
-        }
+    public override void Update()
+    {
+        if (Time.time - stateStartTime > animDuration) unit.stateMachine.SetState(new PlayerIdle()); //go to idle state
     }
 }

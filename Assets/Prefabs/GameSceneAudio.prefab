@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a98fb328cdb667479d395af046ebc5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AudioList:
+  AudioClipArray:
   - name: -----------PLAYER-----------
     volume: 0
     randomVolume: 0
@@ -237,7 +237,7 @@ MonoBehaviour:
     range: 0
     loop: 0
     clip:
-    - {fileID: 8300000, guid: 7f9213c432c4e7d40a5395ff72620eae, type: 3}
+    - {fileID: 0}
     lastTimePlayed: 0
   - name: ---------PICKUPS--------
     volume: 0.5
@@ -266,7 +266,7 @@ MonoBehaviour:
     range: 0
     loop: 0
     clip:
-    - {fileID: 8300000, guid: 7f9213c432c4e7d40a5395ff72620eae, type: 3}
+    - {fileID: 0}
     lastTimePlayed: 0
   - name: HandPointer
     volume: 0.2
@@ -276,7 +276,7 @@ MonoBehaviour:
     range: 0
     loop: 0
     clip:
-    - {fileID: 8300000, guid: bfd8d5643b50408458b4a6fd856a8291, type: 3}
+    - {fileID: 0}
     lastTimePlayed: 0
   - name: UIButtonClick
     volume: 1
@@ -296,7 +296,7 @@ MonoBehaviour:
     range: 0
     loop: 1
     clip:
-    - {fileID: 8300000, guid: 7f9213c432c4e7d40a5395ff72620eae, type: 3}
+    - {fileID: 0}
     lastTimePlayed: 0
   - name: UIButtonSelect
     volume: 0.2
@@ -500,6 +500,46 @@ MonoBehaviour:
     loop: 1
     clip:
     - {fileID: 8300000, guid: 54491a00f1a0a154dbdcafe553a7b769, type: 3}
+    lastTimePlayed: 0
+  - name: TakeFeather
+    volume: 0.5
+    randomVolume: 0
+    randomPitch: 0
+    minTimeBetweenCall: 0
+    range: 0
+    loop: 0
+    clip:
+    - {fileID: 8300000, guid: 4c9cfa3073d0e92479087c59c993f68f, type: 3}
+    lastTimePlayed: 0
+  - name: PutItem
+    volume: 0.5
+    randomVolume: 0
+    randomPitch: 0
+    minTimeBetweenCall: 0
+    range: 0
+    loop: 0
+    clip:
+    - {fileID: 8300000, guid: 017ee4ecf60325f49b0feafa8c2c067a, type: 3}
+    lastTimePlayed: 0
+  - name: ChooseSave_Message
+    volume: 0.5
+    randomVolume: 0
+    randomPitch: 0
+    minTimeBetweenCall: 0
+    range: 0
+    loop: 0
+    clip:
+    - {fileID: 8300000, guid: f43cf35ad0874544bbe7808c4849d285, type: 3}
+    lastTimePlayed: 0
+  - name: MainMenuStart_Message_From_Author
+    volume: 0.5
+    randomVolume: 0
+    randomPitch: 0
+    minTimeBetweenCall: 0
+    range: 0
+    loop: 0
+    clip:
+    - {fileID: 8300000, guid: 2df9eca645e8d8f43ae15690104c8881, type: 3}
     lastTimePlayed: 0
 --- !u!82 &5775929421730576848
 AudioSource:

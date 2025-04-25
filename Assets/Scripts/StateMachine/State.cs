@@ -1,6 +1,4 @@
-﻿namespace CW_Devyatov_238 {
-
-    //state base class
+﻿
     public abstract class State {
 
         public virtual bool canGrab => true;
@@ -12,4 +10,3 @@
         public virtual void Enter(){}
         public virtual void Exit(){}
     }
-}

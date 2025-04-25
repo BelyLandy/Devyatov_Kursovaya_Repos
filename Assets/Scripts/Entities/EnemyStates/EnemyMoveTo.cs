@@ -1,34 +1,31 @@
 ﻿using UnityEngine;
 
-namespace CW_Devyatov_238 {
-    
-    public class EnemyMoveTo : State {
+public class EnemyMoveTo : State
+{
+    private string animationName = "Run";
+    private Vector2 destination;
 
-        private string animationName = "Run";
-        private Vector2 destination;
+    public EnemyMoveTo(Vector2 pos)
+    {
+        destination = pos;
+    }
 
-        public EnemyMoveTo(Vector2 pos){
-            destination = pos;
+    public override void FixedUpdate()
+    {
+        Vector2 unitPos = unit.GetComponent<UnitActions>().currentPosition;
+        Vector2 moveDir = (destination - unitPos).normalized;
+
+
+        Vector2 wallDistanceCheck = unit.col2D ? (unit.col2D.size / 1.8f) * 1.1f : Vector2.one * .3f;
+        if (unit.EnemyWallDetected(moveDir * wallDistanceCheck))
+        {
+            unit.stateMachine.SetState(new EnemyIdle());
+            return;
         }
 
-        public override void FixedUpdate(){
-            Vector2 unitPos = unit.GetComponent<UnitActions>().currentPosition;
-            Vector2 moveDir = (destination - unitPos).normalized;
-            
-            
-            //if there is a wall in front of us, go to Idle
-            Vector2 wallDistanceCheck = unit.col2D? (unit.col2D.size/1.8f) * 1.1f : Vector2.one * .3f;
-            if(unit.EnemyWallDetected(moveDir * wallDistanceCheck)){
-                unit.stateMachine.SetState(new EnemyIdle());
-                return;
-            }
+        unit.MoveToVector(moveDir, unit.settings.moveSpeed);
+        unit.animator.Play(animationName);
 
-            //move and play 'Run' anim
-            unit.MoveToVector(moveDir, unit.settings.moveSpeed);
-            unit.animator.Play(animationName);
-            
-            //if we've reached our destination, go to Idle
-            if(Vector2.Distance(unitPos, destination) < .1f) unit.stateMachine.SetState(new EnemyIdle());
-        }
+        if (Vector2.Distance(unitPos, destination) < .1f) unit.stateMachine.SetState(new EnemyIdle());
     }
 }

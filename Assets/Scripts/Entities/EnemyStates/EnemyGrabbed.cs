@@ -1,44 +1,42 @@
 using UnityEngine;
 
-namespace CW_Devyatov_238 {
+//sets enemy in a grabbed state
+public class EnemyGrabbed : State
+{
+    private string animationName = "Grabbed";
+    public override bool canGrab => false; //cannot be grabbed in this state
+    private float grabDuration;
+    private GameObject player;
+    private Vector2 grabPos;
 
-    //sets enemy in a grabbed state
-    public class EnemyGrabbed : State {
+    public EnemyGrabbed(GameObject player, Vector2 grabPos)
+    {
+        this.player = player;
+        this.grabPos = grabPos;
+    }
 
-        private string animationName = "Grabbed";
-        public override bool canGrab => false; //cannot be grabbed in this state
-        private float grabDuration;
-        private GameObject player;
-        private Vector2 grabPos;
+    public override void Enter()
+    {
+        //return to idle if there is no player
+        if (player == null) unit.stateMachine.SetState(new EnemyIdle());
 
-        public EnemyGrabbed(GameObject player, Vector2 grabPos){
-            this.player = player;
-            this.grabPos = grabPos;
-        }
+        unit.StopMoving();
+        unit.animator.Play(animationName);
 
-        public override void Enter(){
+        //move into grab position
+        unit.transform.position = grabPos;
+        unit.groundPos = unit.transform.position.y;
 
-            //return to idle if there is no player
-            if(player == null) unit.stateMachine.SetState(new EnemyIdle());
+        //turn to the opposite direction as the grabber
+        unit.TurnToDir((DIRECTION)(-(int)player.GetComponent<UnitActions>().dir));
 
-            unit.StopMoving();
-            unit.animator.Play(animationName);
+        //duration before grab expires
+        grabDuration = player.GetComponent<UnitActions>().settings.grabDuration;
+    }
 
-            //move into grab position
-            unit.transform.position = grabPos;
-            unit.groundPos = unit.transform.position.y;
-
-            //turn to the opposite direction as the grabber
-            unit.TurnToDir((DIRECTION)(-(int)player.GetComponent<UnitActions>().dir));
-            
-            //duration before grab expires
-            grabDuration = player.GetComponent<UnitActions>().settings.grabDuration;
-        }
-
-        public override void Update(){
-
-            //grab expires
-            if(Time.time - stateStartTime > grabDuration) unit.stateMachine.SetState(new EnemyIdle());
-        }
+    public override void Update()
+    {
+        //grab expires
+        if (Time.time - stateStartTime > grabDuration) unit.stateMachine.SetState(new EnemyIdle());
     }
 }

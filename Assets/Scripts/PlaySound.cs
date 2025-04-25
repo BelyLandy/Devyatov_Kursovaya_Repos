@@ -5,17 +5,17 @@ public class PlaySound : MonoBehaviour, IClickable
 {
     [Header("Список имён звуков для поочередного воспроизведения")]
     [SerializeField]
-    private List<string> soundNames = new List<string>();
+    private List<string> soundNames = new();
     
-    private int currentIndex = 0;
+    private int currentIndex;
 
     public void OnClick()
     {
         if (soundNames == null || soundNames.Count == 0)
             return;
         
-        SoundManager.Instance.PlaySound2D(soundNames[currentIndex]);
-        
+        AudioController.PlaySFX(soundNames[currentIndex]);
+
         currentIndex = (currentIndex + 1) % soundNames.Count;
     }
 }

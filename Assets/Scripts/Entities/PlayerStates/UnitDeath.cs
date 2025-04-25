@@ -1,7 +1,5 @@
 ﻿using UnityEngine;
 
-namespace CW_Devyatov_238 {
-
     public class UnitDeath : State {
 
         private const string KillStatsPath = "KillStatsSO";
@@ -19,10 +17,8 @@ namespace CW_Devyatov_238 {
 
         public override void Enter(){
             
-            //play death animation
             if(showDeathAnimation) unit.animator.Play(animationName);
 
-            //set this unit on the floor
             unit.GetComponent<Collider2D>().offset = Vector2.zero;
             unit.transform.position = unit.currentPosition;
             unit.isGrounded = true;
@@ -32,13 +28,12 @@ namespace CW_Devyatov_238 {
                 child.gameObject.SetActive(false);
             }
 
-            //stop moving
+
             unit.StopMoving(true);
 
-            //disable all enemy AI if a player has died
+
             if(unit.isPlayer) EnemyManager.DisableAllEnemyAI();
 
-            //flicker and remove enemy units from the field
             if(unit.isEnemy){
                 if (stats != null)
                     stats.AddKill();
@@ -47,4 +42,3 @@ namespace CW_Devyatov_238 {
             }
         }
     }
-}

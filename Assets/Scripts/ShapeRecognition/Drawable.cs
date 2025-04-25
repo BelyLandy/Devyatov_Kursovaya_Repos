@@ -1,239 +1,139 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.IO;
-using System.Linq;
 using UnityEngine;
-using UnityEngine.EventSystems;
-using UnityEngine.UI;
 
-namespace FreeDraw
+[RequireComponent(typeof(SpriteRenderer))]
+[RequireComponent(typeof(Collider2D))]
+public class Drawable : MonoBehaviour
 {
-    [RequireComponent(typeof(SpriteRenderer))]
-    [RequireComponent(typeof(Collider2D))] // REQUIRES A COLLIDER2D to function
-    // 1. Attach this to a read/write enabled sprite image
-    // 2. Set the drawing_layers  to use in the raycast
-    // 3. Attach a 2D collider (like a Box Collider 2D) to this sprite
-    // 4. Hold down left mouse to draw on this texture!
-    public class Drawable : MonoBehaviour
+    public event Action<DollarPoint[]> OnDrawFinished;
+
+
+    [SerializeField] private PenColorSettings _penColorSettings;
+
+    [SerializeField] private static int Pen_Width = 1;
+
+
+    public delegate void Brush_Function(Vector2 world_position);
+
+    public Brush_Function current_brush;
+
+    public LayerMask Drawing_Layers;
+
+    public bool Reset_Canvas_On_Play = true;
+    
+    public Color Reset_Colour = new Color(0, 0, 0, 0);
+    
+    public static Drawable drawable;
+    
+    public Sprite drawable_sprite;
+    public Texture2D drawable_texture;
+
+    Vector2 previous_drag_position;
+    Color[] clean_colours_array;
+    Color transparent;
+    Color32[] cur_colors;
+    bool mouse_was_previously_held_down = false;
+    bool no_drawing_on_current_drag = false;
+    
+    public void BrushTemplate(Vector2 world_position)
     {
-     
-        public event Action<DollarPoint []> OnDrawFinished;
+        Vector2 pixel_pos = WorldToPixelCoordinates(world_position);
 
-
-        [SerializeField] private PenColorSettings _penColorSettings;
+        cur_colors = drawable_texture.GetPixels32();
         
-        // PEN COLOUR
-        //public static Color _penColorSettings.currentColor = Color.red; // Change these to change the default drawing settings
-
-        // PEN WIDTH (actually, it's a radius, in pixels)
-        [SerializeField] private static int Pen_Width = 1;
-
-
-        public delegate void Brush_Function(Vector2 world_position);
-
-        // This is the function called when a left click happens
-        // Pass in your own custom one to change the brush type
-        // Set the default function in the Awake method
-        public Brush_Function current_brush;
-
-        public LayerMask Drawing_Layers;
-
-        public bool Reset_Canvas_On_Play = true;
-
-        // The colour the canvas is reset to each time
-        public Color Reset_Colour = new Color(0, 0, 0, 0); // By default, reset the canvas to be transparent
-
-        // Used to reference THIS specific file without making all methods static
-        public static Drawable drawable;
-
-        // MUST HAVE READ/WRITE enabled set in the file editor of Unity
-        public Sprite drawable_sprite;
-        public Texture2D drawable_texture;
-
-        Vector2 previous_drag_position;
-        Color[] clean_colours_array;
-        Color transparent;
-        Color32[] cur_colors;
-        bool mouse_was_previously_held_down = false;
-        bool no_drawing_on_current_drag = false;
-
-
-//////////////////////////////////////////////////////////////////////////////
-// BRUSH TYPES. Implement your own here
-
-
-        // When you want to make your own type of brush effects,
-        // Copy, paste and rename this function.
-        // Go through each step
-        public void BrushTemplate(Vector2 world_position)
+        if (previous_drag_position == Vector2.zero)
         {
-            // 1. Change world position to pixel coordinates
-            Vector2 pixel_pos = WorldToPixelCoordinates(world_position);
+            MarkPixelsToColour(pixel_pos, Pen_Width, _penColorSettings.currentColor);
+        }
+        else
+        {
+            ColourBetween(previous_drag_position, pixel_pos, Pen_Width, _penColorSettings.currentColor);
+        }
 
-            // 2. Make sure our variable for pixel array is updated in this frame
-            cur_colors = drawable_texture.GetPixels32();
+        ApplyMarkedPixelChanges(drawable_texture, cur_colors);
+        
+        previous_drag_position = pixel_pos;
+    }
 
-            ////////////////////////////////////////////////////////////////
-            // FILL IN CODE BELOW HERE
 
-            // Do we care about the user left clicking and dragging?
-            // If you don't, simply set the below if statement to be:
-            //if (true)
+    private List<DollarPoint> _drawPoints = new List<DollarPoint>();
+    
+    public void PenBrush(Vector2 world_point)
+    {
+        Vector2 pixel_pos = WorldToPixelCoordinates(world_point);
 
-            // If you do care about dragging, use the below if/else structure
-            if (previous_drag_position == Vector2.zero)
+
+        cur_colors = drawable_texture.GetPixels32();
+
+        if (previous_drag_position == Vector2.zero)
+        {
+            MarkPixelsToColour(pixel_pos, Pen_Width, _penColorSettings.currentColor);
+        }
+        else
+        {
+            ColourBetween(previous_drag_position, pixel_pos, Pen_Width, _penColorSettings.currentColor);
+        }
+
+        _drawPoints.Add(new DollarPoint() { Point = pixel_pos, StrokeIndex = _strokeIndex });
+
+        ApplyMarkedPixelChanges(drawable_texture, cur_colors);
+
+        previous_drag_position = pixel_pos;
+    }
+    
+    public void SetPenBrush()
+    {
+        current_brush = PenBrush;
+    }
+
+
+    private int _strokeIndex;
+    private bool _drawStarted;
+
+    private bool isDone;
+    
+    void Update()
+    {
+        bool mouse_held_down = Input.GetMouseButton(0);
+
+        if (mouse_held_down)
+        {
+            Pen_Width = 1;
+        }
+
+        if (Input.GetMouseButtonDown(0))
+        {
+            AudioController.PlaySFX("SlimeSplat");
+        }
+
+        if ((mouse_held_down) && !no_drawing_on_current_drag)
+        {
+            isDone = true;
+            
+            Vector2 mouse_world_position = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            
+            Collider2D hit = Physics2D.OverlapPoint(mouse_world_position, Drawing_Layers.value);
+            if (hit != null && hit.transform != null)
             {
-                // THIS IS THE FIRST CLICK
-                // FILL IN WHATEVER YOU WANT TO DO HERE
-                // Maybe mark multiple pixels to colour?
-                MarkPixelsToColour(pixel_pos, Pen_Width, _penColorSettings.currentColor);
+                current_brush(mouse_world_position);
             }
+
             else
-            {
-                // THE USER IS DRAGGING
-                // Should we do stuff between the previous mouse position and the current one?
-                ColourBetween(previous_drag_position, pixel_pos, Pen_Width, _penColorSettings.currentColor);
-            }
-            ////////////////////////////////////////////////////////////////
-
-            // 3. Actually apply the changes we marked earlier
-            // Done here to be more efficient
-            ApplyMarkedPixelChanges(drawable_texture, cur_colors);
-
-            // 4. If dragging, update where we were previously
-            previous_drag_position = pixel_pos;
-        }
-
-
-        private List<DollarPoint> _drawPoints = new List<DollarPoint>();
-
-        // Default brush type. Has width and colour.
-        // Pass in a point in WORLD coordinates
-        // Changes the surrounding pixels of the world_point to the static _penColorSettings.currentColor
-        public void PenBrush(Vector2 world_point)
-        {
-            Vector2 pixel_pos = WorldToPixelCoordinates(world_point);
-
-
-            cur_colors = drawable_texture.GetPixels32();
-
-            if (previous_drag_position == Vector2.zero)
-            {
-                // If this is the first time we've ever dragged on this image, simply colour the pixels at our mouse position
-                MarkPixelsToColour(pixel_pos, Pen_Width, _penColorSettings.currentColor);
-            }
-            else
-            {
-                // Colour in a line from where we were on the last update call
-                ColourBetween(previous_drag_position, pixel_pos, Pen_Width, _penColorSettings.currentColor);
-            }
-
-            _drawPoints.Add(new DollarPoint(){Point = pixel_pos, StrokeIndex = _strokeIndex});
-
-            ApplyMarkedPixelChanges(drawable_texture, cur_colors);
-
-            //Debug.Log("Dimensions: " + pixelWidth + "," + pixelHeight + ". Units to pixels: " + unitsToPixels + ". Pixel pos: " + pixel_pos);
-            previous_drag_position = pixel_pos;
-        }
-
-
-        // Helper method used by UI to set what brush the user wants
-        // Create a new one for any new brushes you implement
-        public void SetPenBrush()
-        {
-            // PenBrush is the NAME of the method we want to set as our current brush
-            current_brush = PenBrush;
-        }
-//////////////////////////////////////////////////////////////////////////////
-
-
-        private int _strokeIndex;
-        private bool _drawStarted;
-
-        private bool isDone;
-
-        // This is where the magic happens.
-        // Detects when user is left clicking, which then call the appropriate function
-        void Update()
-        {
-            // Is the user holding down the left mouse button?
-            bool mouse_held_down = Input.GetMouseButton(0);
-            //bool mouse_held_down_right = Input.GetMouseButton(1);
-
-            if (mouse_held_down)
-            {
-                Pen_Width = 1;
-                //_penColorSettings.currentColor = Color.red;
-            }
-
-            /*if (mouse_held_down_right)
-            {
-                Pen_Width = 8;
-                _penColorSettings.currentColor = Color.clear;
-            }*/
-
-            if ((mouse_held_down) && !no_drawing_on_current_drag)
-            {
-                isDone = true;
-
-                // Convert mouse coordinates to world coordinates
-                Vector2 mouse_world_position = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-
-                // Check if the current mouse position overlaps our image
-                Collider2D hit = Physics2D.OverlapPoint(mouse_world_position, Drawing_Layers.value);
-                if (hit != null && hit.transform != null)
-                {
-                    // We're over the texture we're drawing on!
-                    // Use whatever function the current brush is
-                    current_brush(mouse_world_position);
-
-                }
-
-                else
-                {
-                    // We're not over our destination texture
-                    previous_drag_position = Vector2.zero;
-                    if (!mouse_was_previously_held_down)
-                    {
-                        // This is a new drag where the user is left clicking off the canvas
-                        // Ensure no drawing happens until a new drag is started
-                        no_drawing_on_current_drag = true;
-                    }
-                }
-            }
-            // Mouse is released
-            else if (!mouse_held_down)
             {
                 previous_drag_position = Vector2.zero;
-                no_drawing_on_current_drag = false;
-
-                if (isDone)
+                if (!mouse_was_previously_held_down)
                 {
-                    if (_drawPoints.Count > 0)
-                    {
-                        OnDrawFinished?.Invoke(_drawPoints.ToArray());
-                        previous_drag_position = Vector2.zero;
-                        no_drawing_on_current_drag = false;
-                        ResetCanvas(drawable_texture);
-                        //Debug.Log(_strokeIndex);
-                        _strokeIndex = 0;
-                    }
-                    else
-                    {
-                        Debug.Log("Холст пуст!");
-                    }
-
-                    isDone = false;
+                    no_drawing_on_current_drag = true;
                 }
             }
+        }
+        else if (!mouse_held_down)
+        {
+            previous_drag_position = Vector2.zero;
+            no_drawing_on_current_drag = false;
 
-            if (Input.GetMouseButtonUp(0) && InRange())
-            {
-                _strokeIndex++;
-            }
-
-            /*if (Input.GetKeyDown(KeyCode.Space))
+            if (isDone)
             {
                 if (_drawPoints.Count > 0)
                 {
@@ -241,179 +141,174 @@ namespace FreeDraw
                     previous_drag_position = Vector2.zero;
                     no_drawing_on_current_drag = false;
                     ResetCanvas(drawable_texture);
-                    Debug.Log(_strokeIndex);
+                    //Debug.Log(_strokeIndex);
                     _strokeIndex = 0;
                 }
                 else
                 {
                     Debug.Log("Холст пуст!");
                 }
-            }*/
 
-            mouse_was_previously_held_down = mouse_held_down;
-        }
-
-        private bool InRange()
-        {
-            // Convert mouse coordinates to world coordinates
-            Vector2 mouse_world_position = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-
-            // Check if the current mouse position overlaps our image
-            Collider2D hit = Physics2D.OverlapPoint(mouse_world_position, Drawing_Layers.value);
-            return hit != null;
-        }
-
-
-        // Set the colour of pixels in a straight line from start_point all the way to end_point, to ensure everything inbetween is coloured
-        public void ColourBetween(Vector2 start_point, Vector2 end_point, int width, Color color)
-        {
-            // Get the distance from start to finish
-            float distance = Vector2.Distance(start_point, end_point);
-            Vector2 direction = (start_point - end_point).normalized;
-
-            Vector2 cur_position = start_point;
-
-            // Calculate how many times we should interpolate between start_point and end_point based on the amount of time that has passed since the last update
-            float lerp_steps = 1 / distance;
-
-            for (float lerp = 0; lerp <= 1; lerp += lerp_steps)
-            {
-                cur_position = Vector2.Lerp(start_point, end_point, lerp);
-                MarkPixelsToColour(cur_position, width, color);
+                isDone = false;
             }
         }
 
-
-        public void MarkPixelsToColour(Vector2 center_pixel, int pen_thickness, Color color_of_pen)
+        if (Input.GetMouseButtonUp(0) && InRange())
         {
-            // Figure out how many pixels we need to colour in each direction (x and y)
-            int center_x = (int) center_pixel.x;
-            int center_y = (int) center_pixel.y;
-            //int extra_radius = Mathf.Min(0, pen_thickness - 2);
+            _strokeIndex++;
+        }
 
-            for (int x = center_x - pen_thickness; x <= center_x + pen_thickness; x++)
+        /*if (Input.GetKeyDown(KeyCode.Space))
+        {
+            if (_drawPoints.Count > 0)
             {
-                // Check if the X wraps around the image, so we don't draw pixels on the other side of the image
-                if (x >= (int) drawable_sprite.rect.width || x < 0)
-                    continue;
-
-                for (int y = center_y - pen_thickness; y <= center_y + pen_thickness; y++)
-                {
-                    MarkPixelToChange(x, y, color_of_pen, cur_colors);
-                }
-            }
-        }
-
-        public void MarkPixelToChange(int x, int y, Color color, Color32[] textureColors)
-        {
-            // Need to transform x and y coordinates to flat coordinates of array
-            int array_pos = y * (int) drawable_sprite.rect.width + x;
-
-            // Check if this is a valid position
-            if (array_pos > textureColors.Length || array_pos < 0)
-                return;
-
-            textureColors[array_pos] = color;
-        }
-
-        public void ApplyMarkedPixelChanges(Texture2D texture, Color32[] colors)
-        {
-            texture.SetPixels32(colors);
-            texture.Apply(false);
-        }
-
-
-        // Directly colours pixels. This method is slower than using MarkPixelsToColour then using ApplyMarkedPixelChanges
-        // SetPixels32 is far faster than SetPixel
-        // Colours both the center pixel, and a number of pixels around the center pixel based on pen_thickness (pen radius)
-        public void ColourPixels(Vector2 center_pixel, int pen_thickness, Color color_of_pen)
-        {
-            // Figure out how many pixels we need to colour in each direction (x and y)
-            int center_x = (int) center_pixel.x;
-            int center_y = (int) center_pixel.y;
-            //int extra_radius = Mathf.Min(0, pen_thickness - 2);
-
-            for (int x = center_x - pen_thickness; x <= center_x + pen_thickness; x++)
-            {
-                for (int y = center_y - pen_thickness; y <= center_y + pen_thickness; y++)
-                {
-                    drawable_texture.SetPixel(x, y, color_of_pen);
-                }
-            }
-
-            drawable_texture.Apply();
-        }
-
-
-        public Vector2 WorldToPixelCoordinates(Vector2 world_position)
-        {
-            // Change coordinates to local coordinates of this image
-            Vector3 local_pos = transform.InverseTransformPoint(world_position);
-
-            // Change these to coordinates of pixels
-            float pixelWidth = drawable_sprite.rect.width;
-            float pixelHeight = drawable_sprite.rect.height;
-            float unitsToPixels = pixelWidth / drawable_sprite.bounds.size.x * transform.localScale.x;
-
-            // Need to center our coordinates
-            float centered_x = local_pos.x * unitsToPixels + pixelWidth / 2;
-            float centered_y = local_pos.y * unitsToPixels + pixelHeight / 2;
-
-            // Round current mouse position to nearest pixel
-            Vector2 pixel_pos = new Vector2(Mathf.RoundToInt(centered_x), Mathf.RoundToInt(centered_y));
-
-            return pixel_pos;
-        }
-
-
-        // Changes every pixel to be the reset colour
-        public void ResetCanvas(Texture2D texture)
-        {
-            _drawPoints.Clear();
-            texture.SetPixels(clean_colours_array);
-            texture.Apply();
-        }
-
-
-        void Awake()
-        {
-            drawable = this;
-            // DEFAULT BRUSH SET HERE
-            current_brush = PenBrush;
-
-            // Initialize clean pixels to use
-            clean_colours_array = new Color[(int) drawable_sprite.rect.width * (int) drawable_sprite.rect.height];
-            for (int x = 0; x < clean_colours_array.Length; x++)
-                clean_colours_array[x] = Reset_Colour;
-
-            // Should we reset our canvas image when we hit play in the editor?
-            if (Reset_Canvas_On_Play)
+                OnDrawFinished?.Invoke(_drawPoints.ToArray());
+                previous_drag_position = Vector2.zero;
+                no_drawing_on_current_drag = false;
                 ResetCanvas(drawable_texture);
-        }
+                Debug.Log(_strokeIndex);
+                _strokeIndex = 0;
+            }
+            else
+            {
+                Debug.Log("Холст пуст!");
+            }
+        }*/
 
-        private void Reset()
+        mouse_was_previously_held_down = mouse_held_down;
+    }
+
+    private bool InRange()
+    {
+        Vector2 mouse_world_position = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+
+        // Check if the current mouse position overlaps our image
+        Collider2D hit = Physics2D.OverlapPoint(mouse_world_position, Drawing_Layers.value);
+        return hit != null;
+    }
+    
+    public void ColourBetween(Vector2 start_point, Vector2 end_point, int width, Color color)
+    {
+         float distance = Vector2.Distance(start_point, end_point);
+        Vector2 direction = (start_point - end_point).normalized;
+
+        Vector2 cur_position = start_point;
+
+        float lerp_steps = 1 / distance;
+
+        for (float lerp = 0; lerp <= 1; lerp += lerp_steps)
         {
-            clean_colours_array = new Color[(int) drawable_sprite.rect.width * (int) drawable_sprite.rect.height];
-            ResetCanvas(drawable_texture);
+            cur_position = Vector2.Lerp(start_point, end_point, lerp);
+            MarkPixelsToColour(cur_position, width, color);
         }
+    }
+
+
+    public void MarkPixelsToColour(Vector2 center_pixel, int pen_thickness, Color color_of_pen)
+    {
+        int center_x = (int)center_pixel.x;
+        int center_y = (int)center_pixel.y;
+
+        for (int x = center_x - pen_thickness; x <= center_x + pen_thickness; x++)
+        {
+            if (x >= (int)drawable_sprite.rect.width || x < 0)
+                continue;
+
+            for (int y = center_y - pen_thickness; y <= center_y + pen_thickness; y++)
+            {
+                MarkPixelToChange(x, y, color_of_pen, cur_colors);
+            }
+        }
+    }
+
+    public void MarkPixelToChange(int x, int y, Color color, Color32[] textureColors)
+    {
+        int array_pos = y * (int)drawable_sprite.rect.width + x;
         
-        public Vector3 PixelToWorldCoordinates(Vector2 pixelPos)
+        if (array_pos > textureColors.Length || array_pos < 0)
+            return;
+
+        textureColors[array_pos] = color;
+    }
+
+    public void ApplyMarkedPixelChanges(Texture2D texture, Color32[] colors)
+    {
+        texture.SetPixels32(colors);
+        texture.Apply(false);
+    }
+
+    public void ColourPixels(Vector2 center_pixel, int pen_thickness, Color color_of_pen)
+    {
+        int center_x = (int)center_pixel.x;
+        int center_y = (int)center_pixel.y;
+
+        for (int x = center_x - pen_thickness; x <= center_x + pen_thickness; x++)
         {
-            // Получаем размеры спрайта в пикселях
-            float pixelWidth = drawable_sprite.rect.width;
-            float pixelHeight = drawable_sprite.rect.height;
-    
-            // Вычисляем коэффициент перевода (единицы в пикселях)
-            float unitsToPixels = pixelWidth / drawable_sprite.bounds.size.x * transform.localScale.x;
-    
-            // Отменяем центровку, выполненную в WorldToPixelCoordinates
-            float uncenteredX = pixelPos.x - pixelWidth / 2;
-            float uncenteredY = pixelPos.y - pixelHeight / 2;
-    
-            // Преобразуем в мировые координаты
-            Vector3 localPos = new Vector3(uncenteredX / unitsToPixels, uncenteredY / unitsToPixels, 0f);
-            return transform.TransformPoint(localPos);
+            for (int y = center_y - pen_thickness; y <= center_y + pen_thickness; y++)
+            {
+                drawable_texture.SetPixel(x, y, color_of_pen);
+            }
         }
 
+        drawable_texture.Apply();
+    }
+
+
+    public Vector2 WorldToPixelCoordinates(Vector2 world_position)
+    {
+        Vector3 local_pos = transform.InverseTransformPoint(world_position);
+        
+        float pixelWidth = drawable_sprite.rect.width;
+        float pixelHeight = drawable_sprite.rect.height;
+        float unitsToPixels = pixelWidth / drawable_sprite.bounds.size.x * transform.localScale.x;
+        
+        float centered_x = local_pos.x * unitsToPixels + pixelWidth / 2;
+        float centered_y = local_pos.y * unitsToPixels + pixelHeight / 2;
+        
+        Vector2 pixel_pos = new Vector2(Mathf.RoundToInt(centered_x), Mathf.RoundToInt(centered_y));
+
+        return pixel_pos;
+    }
+    
+    public void ResetCanvas(Texture2D texture)
+    {
+        _drawPoints.Clear();
+        texture.SetPixels(clean_colours_array);
+        texture.Apply();
+    }
+
+
+    void Awake()
+    {
+        drawable = this;
+
+        current_brush = PenBrush;
+        
+        clean_colours_array = new Color[(int)drawable_sprite.rect.width * (int)drawable_sprite.rect.height];
+        for (int x = 0; x < clean_colours_array.Length; x++)
+            clean_colours_array[x] = Reset_Colour;
+        
+        if (Reset_Canvas_On_Play)
+            ResetCanvas(drawable_texture);
+    }
+
+    private void Reset()
+    {
+        clean_colours_array = new Color[(int)drawable_sprite.rect.width * (int)drawable_sprite.rect.height];
+        ResetCanvas(drawable_texture);
+    }
+
+    public Vector3 PixelToWorldCoordinates(Vector2 pixelPos)
+    {
+        float pixelWidth = drawable_sprite.rect.width;
+        float pixelHeight = drawable_sprite.rect.height;
+        
+        float unitsToPixels = pixelWidth / drawable_sprite.bounds.size.x * transform.localScale.x;
+        
+        float uncenteredX = pixelPos.x - pixelWidth / 2;
+        float uncenteredY = pixelPos.y - pixelHeight / 2;
+
+        Vector3 localPos = new Vector3(uncenteredX / unitsToPixels, uncenteredY / unitsToPixels, 0f);
+        return transform.TransformPoint(localPos);
     }
 }

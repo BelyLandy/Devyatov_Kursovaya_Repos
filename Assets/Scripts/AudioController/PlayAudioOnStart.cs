@@ -27,7 +27,7 @@ public class PlayAudio : MonoBehaviour
     public void Play()
     {
         if (!string.IsNullOrEmpty(audioItemName))
-            CW_Devyatov_238.AudioController.PlaySFX(audioItemName);
+            AudioController.PlaySFX(audioItemName);
     }
     
     public void PlayDelayed(float customDelay)

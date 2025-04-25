@@ -20,7 +20,6 @@ namespace CW_Devyatov_238 {
 
          public override void Update(){
 
-            //return to idle
             if(Time.time - stateStartTime > timeToWait) unit.stateMachine.SetState(new EnemyIdle()); 
         }
     }

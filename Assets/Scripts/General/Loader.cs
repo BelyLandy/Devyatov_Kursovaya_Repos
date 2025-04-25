@@ -27,4 +27,14 @@ public class Loader : MonoBehaviour
     {
         Load(Scene.VictoryScene);
     }
+    
+    public void GameScene_2()
+    {
+        Load(Scene.GameScene_Main_2);
+    }
+    
+    public void GameScene_3()
+    {
+        Load(Scene.GameScene_Main_2);
+    }
 }

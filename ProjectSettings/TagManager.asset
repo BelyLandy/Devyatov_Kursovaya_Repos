@@ -12,6 +12,7 @@ TagManager:
   - Inkwell
   - HealthBar
   - Repka_Plant
+  - BelenaPlant
   layers:
   - Default
   - TransparentFX
@@ -37,7 +38,7 @@ TagManager:
   - 
   - Obstacles
   - 
-  - 
+  - NoPP
   - 
   - 
   - 

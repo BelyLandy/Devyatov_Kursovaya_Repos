@@ -2,21 +2,20 @@ using UnityEngine;
 
 namespace CW_Devyatov_238 {
 
-    //class for playing an animation on Hit
     [RequireComponent(typeof(Animator))]
     public class BehaviourPlayAnimOnHit : MonoBehaviour {
 
         public string hitAnimation = "Hit";
 
         void OnEnable() {
-		    UnitActions.onUnitDealDamage += OnHitObject; //subscribe to event
+		    UnitActions.onUnitDealDamage += OnHitObject;
 	    }
 
 	    void OnDisable() {
-		    UnitActions.onUnitDealDamage -= OnHitObject; //unsubscribe to event
+		    UnitActions.onUnitDealDamage -= OnHitObject;
 	    }
 
-        //when this object was hit, play hit animation
+ 
         void OnHitObject(GameObject obj, AttackData attackData){
             if(obj == this.gameObject){
 

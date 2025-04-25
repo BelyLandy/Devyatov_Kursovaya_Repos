@@ -1,18 +1,14 @@
-﻿namespace CW_Devyatov_238 {
+﻿public class EnemyIdle : State
+{
+    private string animationName = "Idle";
 
-    public class EnemyIdle : State {
+    public override void Enter()
+    {
+        unit.StopMoving();
+        unit.animator.Play(animationName);
 
-        private string animationName = "Idle";
-        public override void Enter(){
+        if (!unit.target) unit.target = unit.findClosestPlayer();
 
-            unit.StopMoving();
-            unit.animator.Play(animationName);
-
-            //find a player target
-            if(!unit.target) unit.target = unit.findClosestPlayer();
-
-            //if the target was spotted, turn towards the target
-            if(unit.targetSpotted) unit.TurnToTarget();
-        }
+        if (unit.targetSpotted) unit.TurnToTarget();
     }
 }

@@ -3,7 +3,6 @@ using System.Collections;
 
 namespace CW_Devyatov_238 {
 
-    //class for creating scripted animations in y position using animation curves
     public class AnimationCurveAnim : MonoBehaviour {
 
         [Header("Y Position")]
@@ -21,13 +20,11 @@ namespace CW_Devyatov_238 {
             StartCoroutine(PlayBounceAnim());
         }
 
-        //bounce anim routine
         IEnumerator PlayBounceAnim(){
-            if(AnumCurveY.length == 0) yield break; //do nothing when there is no bounce animation 
+            if(AnumCurveY.length == 0) yield break;
             float duration = Mathf.Max(AnumCurveX[AnumCurveX.length-1].time * Duration, AnumCurveY[AnumCurveY.length-1].time * Duration);
             Vector3 startPos = transform.position;
         
-            //play animation
             float t=0;
             while(t<duration){
                 transform.position = startPos + (Vector3.up * AnumCurveY.Evaluate(t) * ScaleY) + (Vector3.right * AnumCurveX.Evaluate(t) * ScaleX) ;

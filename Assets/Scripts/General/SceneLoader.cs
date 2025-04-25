@@ -8,7 +8,9 @@ public static class SceneLoader
         MenuScene,
         GameScene_Main,
         SettingsScene,
-        VictoryScene
+        VictoryScene,
+        GameScene_Main_2,
+        GameScene_Main_3
     }
 
     public static void Load(Scene scene)

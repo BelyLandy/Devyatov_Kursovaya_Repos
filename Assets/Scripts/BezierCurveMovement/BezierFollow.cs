@@ -14,8 +14,7 @@ public class BezierFollow : MonoBehaviour
     private float speedModifier = 0.3f;
 
     private bool coroutineAllowed = true;
-
-    // Смещение между pivot и центром объекта (рассчитанным по объединённым границам всех Renderer-ов)
+    
     private Vector2 offset;
 
     void Start()
@@ -24,7 +23,6 @@ public class BezierFollow : MonoBehaviour
         tParam = 0f;
         coroutineAllowed = true;
         
-        // Вычисление объединенных границ всех Renderer-ов (если их несколько)
         Renderer[] renderers = GetComponentsInChildren<Renderer>();
         if (renderers.Length > 0)
         {
@@ -33,7 +31,6 @@ public class BezierFollow : MonoBehaviour
             {
                 bounds.Encapsulate(renderers[i].bounds);
             }
-            // Вычисляем смещение от pivot объекта до центра bounds
             offset = (Vector2)transform.position - (Vector2)bounds.center;
         }
         else
@@ -58,20 +55,17 @@ public class BezierFollow : MonoBehaviour
         Vector2 p1 = routes[routeNum].GetChild(1).position;
         Vector2 p2 = routes[routeNum].GetChild(2).position;
         Vector2 p3 = routes[routeNum].GetChild(3).position;
-
-        // Обнуляем параметр кривой
+        
         tParam = 0f;
         while(tParam < 1f)
         {
             tParam += Time.deltaTime * speedModifier;
-
-            // Вычисление позиции на кубической Безье кривой
+            
             objectPosition = Mathf.Pow(1 - tParam, 3) * p0 +
                              3 * Mathf.Pow(1 - tParam, 2) * tParam * p1 +
                              3 * (1 - tParam) * Mathf.Pow(tParam, 2) * p2 +
                              Mathf.Pow(tParam, 3) * p3;
-
-            // Применяем коррекцию смещения
+            
             transform.position = objectPosition + offset;
 
             yield return new WaitForEndOfFrame();

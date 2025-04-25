@@ -13,14 +13,16 @@ public class UISetPlayerInactive : MonoBehaviour
 
     IEnumerator SetPlayerInactive(float delay)
     {
-        yield return new WaitForSeconds(startDelay);
-        foreach (StateMachine unitStateMachine in
-                 GameObject.FindObjectsOfType<StateMachine>())
+        yield return new WaitForSeconds(delay);
+
+        var players = Object.FindObjectsByType<StateMachine>(
+            FindObjectsInactive.Exclude,
+            FindObjectsSortMode.None);
+
+        foreach (var sm in players)
         {
-            if (unitStateMachine.settings.unitType == UNITTYPE.PLAYER)
-            {
-                unitStateMachine.SetState(new PlayerInActive());
-            }
+            if (sm.settings.unitType == UNITTYPE.PLAYER)
+                sm.SetState(new PlayerInActive());
         }
     }
 }
